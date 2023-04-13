@@ -1,0 +1,1 @@
+void pushTS(SYMBOLE S);
