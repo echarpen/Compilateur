@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ts.h>
+#include <asm_instruction.h>
 int var[24];
 %}
 
@@ -32,8 +33,8 @@ ArgListNext : tINT tID ArgListNextNext
             | Arith_Expr ArgListNextNext ;
 
 ArgListNextNext : tCOMMA tINT tID ArgListNextNext
-                 | tCOMMA Arith_Expr ArgListNextNext  
-                 | %empty ;
+                | tCOMMA Arith_Expr ArgListNextNext  
+                | %empty ;
 
 Body : tLBRACE Content tRBRACE;
 
@@ -77,34 +78,57 @@ LoopWHILE : tWHILE tLPAR  Condition tRPAR  Body ;
 
 
 Arith_Expr : Factor 
-           | Arith_Expr tADD Factor { $$ = $1 + $3 ;
-           SYMBOLE s1 = {"x", 0, "int", 0, 0}; 
-           pushTS(s1);}
-           | Arith_Expr tSUB Factor;
+           | Arith_Expr tADD Factor {
+           // on genere la fct assembleur correspondante add @res @op1 @op2, on recup les operandes avec la ram, @res variable tempo
+                add_arithm(ADD);
+                add_symb_tmp_ts("", 0, INT);}
+           | Arith_Expr tSUB Factor{
+                add_arithm(SUB);
+                add_symb_tmp_ts("", 0, INT);}
             
+           //mettre actions simples, printf pour verifier que grammaire est bonne, printf ensuite transforme en fprintf des instructions en asm, il nous faut recuper l @ dans la ts
 
 Factor : Term 
        | Factor tMUL Term
        | Factor tDIV Term ;
 
-Term : tNB 
-     | tID  
+Term : tNB {
+        add_instruc2(AFC, get_last_tmp_addr(), $1);
+        }
+     | tID  {
+        add_instruc2(COP, get_last_tmp_addr(), get_addr_var_ts($1));
+        }
      | tLPAR Arith_Expr tRPAR;
 
 
 Condition : Bool_Expr 
-          | Bool_Expr tAND Bool_Expr 
-          | Bool_Expr tNOT Bool_Expr
-          | Bool_Expr tOR Bool_Expr ;
+          | Bool_Expr tAND Bool_Expr {
+                add_arithm(AND);
+                add_symb_tmp_ts("", 0, INT);
+          }
+          | Bool_Expr tNOT Bool_Expr 
+          | Bool_Expr tOR Bool_Expr {
+                add_arithm(OR);
+                add_symb_tmp_ts("", 0, INT);
+          };
 
 Bool_Expr : tTRUE 
           | tFALSE 
-          | Arith_Expr tLT Arith_Expr
-          | Arith_Expr tGT Arith_Expr
+          | Arith_Expr tLT Arith_Expr{
+                add_arithm(INF);
+                add_symb_tmp_ts("", 0, INT);
+          }
+          | Arith_Expr tGT Arith_Expr {
+                add_arithm(SUP);
+                add_symb_tmp_ts("", 0, INT);
+          }
           | Arith_Expr tGE Arith_Expr
           | Arith_Expr tLE Arith_Expr
           | Arith_Expr tNE Arith_Expr
-          | Arith_Expr tEQ Arith_Expr ; 
+          | Arith_Expr tEQ Arith_Expr {
+                add_arithm(EQU);
+                add_symb_tmp_ts("", 0, INT);
+          }; 
 
 
 

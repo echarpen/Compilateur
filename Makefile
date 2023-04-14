@@ -4,8 +4,6 @@ build:
     gcc -o test parser.tab.c lex.yy.c
 
 	gcc -c -Wall -g ts.c 
-	gcc -Wall -g -o main ts.o main.o 
-
 
 
 clean:
