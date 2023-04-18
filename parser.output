@@ -3,6 +3,14 @@ Terminaux inutilisés dans la grammaire
     tERROR
 
 
+Règles inutiles dans l'analyseur à cause de conflits
+
+   29 $@1: %empty
+
+
+État 91 conflits: 1 décalage/réduction
+
+
 Grammaire
 
     0 $accept: Program $end
@@ -46,49 +54,56 @@ Grammaire
    26 DecNext: tID tCOMMA DecNext
    27        | tID
    28        | tID tASSIGN Arith_Expr
-   29        | tID tASSIGN tID tLPAR ArgList tRPAR
 
-   30 Affectation: tID tASSIGN Arith_Expr tSEMI
+   29 $@1: %empty
 
-   31 LoopIF: tIF tLPAR Condition tRPAR Body IfNext
+   30 DecNext: tID tASSIGN $@1 tID tLPAR ArgList tRPAR
 
-   32 IfNext: tELSE Body
-   33       | %empty
+   31 Affectation: tID tASSIGN Arith_Expr tSEMI
 
-   34 LoopWHILE: tWHILE tLPAR Condition tRPAR Body
+   32 $@2: %empty
 
-   35 Arith_Expr: Factor
-   36           | Arith_Expr tADD Factor
-   37           | Arith_Expr tSUB Factor
+   33 $@3: %empty
 
-   38 Factor: Term
-   39       | Factor tMUL Term
-   40       | Factor tDIV Term
+   34 LoopIF: tIF tLPAR Condition tRPAR $@2 Body $@3 IfNext
 
-   41 Term: tNB
-   42     | tID
-   43     | tLPAR Arith_Expr tRPAR
+   35 IfNext: tELSE Body
+   36       | %empty
 
-   44 Condition: Bool_Expr
-   45          | Bool_Expr tAND Bool_Expr
-   46          | Bool_Expr tNOT Bool_Expr
-   47          | Bool_Expr tOR Bool_Expr
+   37 LoopWHILE: tWHILE tLPAR Condition tRPAR Body
 
-   48 Bool_Expr: tTRUE
-   49          | tFALSE
-   50          | Arith_Expr tLT Arith_Expr
-   51          | Arith_Expr tGT Arith_Expr
-   52          | Arith_Expr tGE Arith_Expr
-   53          | Arith_Expr tLE Arith_Expr
-   54          | Arith_Expr tNE Arith_Expr
-   55          | Arith_Expr tEQ Arith_Expr
+   38 Arith_Expr: Factor
+   39           | Arith_Expr tADD Factor
+   40           | Arith_Expr tSUB Factor
 
-   56 Print: tPRINTF tLPAR Expr tRPAR tSEMI
+   41 Factor: Term
+   42       | Factor tMUL Term
+   43       | Factor tDIV Term
 
-   57 Return: tRETURN Expr tSEMI
+   44 Term: tNB
+   45     | tID
+   46     | tLPAR Arith_Expr tRPAR
 
-   58 Expr: Arith_Expr
-   59     | Bool_Expr
+   47 Condition: Bool_Expr
+   48          | Bool_Expr tAND Bool_Expr
+   49          | Bool_Expr tNOT Bool_Expr
+   50          | Bool_Expr tOR Bool_Expr
+
+   51 Bool_Expr: tTRUE
+   52          | tFALSE
+   53          | Arith_Expr tLT Arith_Expr
+   54          | Arith_Expr tGT Arith_Expr
+   55          | Arith_Expr tGE Arith_Expr
+   56          | Arith_Expr tLE Arith_Expr
+   57          | Arith_Expr tNE Arith_Expr
+   58          | Arith_Expr tEQ Arith_Expr
+
+   59 Print: tPRINTF tLPAR Expr tRPAR tSEMI
+
+   60 Return: tRETURN Expr tSEMI
+
+   61 Expr: Arith_Expr
+   62     | Bool_Expr
 
 
 Terminaux, suivis des règles où ils apparaissent
@@ -96,40 +111,40 @@ Terminaux, suivis des règles où ils apparaissent
     $end (0) 0
     error (256)
     tMAIN (258) 1
-    tPRINTF (259) 56
-    tRETURN (260) 57
-    tIF (261) 31
-    tELSE (262) 32
-    tWHILE (263) 34
-    tVOID (264) 1
-    tTRUE (265) 48
-    tFALSE (266) 49
-    tLPAR (267) 1 2 29 31 34 43 56
-    tRPAR (268) 1 2 29 31 34 43 56
-    tLBRACE (269) 10
-    tRBRACE (270) 10
-    tCONST (271) 21
-    tINT (272) 2 5 7 25
-    tCOMMA (273) 7 8 22 26
-    tSEMI (274) 21 25 30 56 57
-    tADD (275) 36
-    tSUB (276) 37
-    tMUL (277) 39
-    tDIV (278) 40
-    tEQ (279) 55
-    tLT (280) 50
-    tGT (281) 51
-    tNE (282) 54
-    tAND (283) 45
-    tOR (284) 47
-    tGE (285) 52
-    tLE (286) 53
-    tASSIGN (287) 24 28 29 30
-    tNOT (288) 46
-    tCOMMENT (289) 20
-    tERROR (290)
-    tNB <nb> (291) 41
-    tID <str> (292) 2 5 7 22 23 24 26 27 28 29 30 42
+    tPRINTF (259) 59
+    tRETURN (260) 60
+    tELSE (261) 35
+    tWHILE (262) 37
+    tVOID (263) 1
+    tTRUE (264) 51
+    tFALSE (265) 52
+    tLPAR (266) 1 2 30 34 37 46 59
+    tRPAR (267) 1 2 30 34 37 46 59
+    tLBRACE (268) 10
+    tRBRACE (269) 10
+    tCONST (270) 21
+    tINT (271) 2 5 7 25
+    tCOMMA (272) 7 8 22 26
+    tSEMI (273) 21 25 31 59 60
+    tADD (274) 39
+    tSUB (275) 40
+    tMUL (276) 42
+    tDIV (277) 43
+    tEQ (278) 58
+    tLT (279) 53
+    tGT (280) 54
+    tNE (281) 57
+    tAND (282) 48
+    tOR (283) 50
+    tGE (284) 55
+    tLE (285) 56
+    tASSIGN (286) 24 28 30 31
+    tNOT (287) 49
+    tCOMMENT (288) 20
+    tERROR (289)
+    tNB <nb> (290) 44
+    tIF <nb> (291) 34
+    tID <str> (292) 2 5 7 22 23 24 26 27 28 30 31 45
 
 
 Non-terminaux, suivis des règles où ils apparaissent
@@ -144,7 +159,7 @@ Non-terminaux, suivis des règles où ils apparaissent
         à droite: 1
     ArgList (41)
         à gauche: 3 4
-        à droite: 2 29
+        à droite: 2 30
     ArgListNext (42)
         à gauche: 5 6
         à droite: 3
@@ -153,7 +168,7 @@ Non-terminaux, suivis des règles où ils apparaissent
         à droite: 5 6 7 8
     Body (44)
         à gauche: 10
-        à droite: 1 2 31 32 34
+        à droite: 1 2 34 35 37
     Content (45)
         à gauche: 11 12
         à droite: 10 11
@@ -170,44 +185,53 @@ Non-terminaux, suivis des règles où ils apparaissent
         à gauche: 25
         à droite: 14
     DecNext (50)
-        à gauche: 26 27 28 29
+        à gauche: 26 27 28 30
         à droite: 22 25 26
-    Affectation (51)
-        à gauche: 30
-        à droite: 15
-    LoopIF (52)
+    $@1 (51)
+        à gauche: 29
+        à droite: 30
+    Affectation (52)
         à gauche: 31
-        à droite: 16
-    IfNext (53)
-        à gauche: 32 33
-        à droite: 31
-    LoopWHILE (54)
+        à droite: 15
+    LoopIF (53)
         à gauche: 34
+        à droite: 16
+    $@2 (54)
+        à gauche: 32
+        à droite: 34
+    $@3 (55)
+        à gauche: 33
+        à droite: 34
+    IfNext (56)
+        à gauche: 35 36
+        à droite: 34
+    LoopWHILE (57)
+        à gauche: 37
         à droite: 17
-    Arith_Expr (55)
-        à gauche: 35 36 37
-        à droite: 6 8 24 28 30 36 37 43 50 51 52 53 54 55 58
-    Factor (56)
+    Arith_Expr (58)
         à gauche: 38 39 40
-        à droite: 35 36 37 39 40
-    Term (57)
+        à droite: 6 8 24 28 31 39 40 46 53 54 55 56 57 58 61
+    Factor (59)
         à gauche: 41 42 43
-        à droite: 38 39 40
-    Condition (58)
-        à gauche: 44 45 46 47
-        à droite: 31 34
-    Bool_Expr (59)
-        à gauche: 48 49 50 51 52 53 54 55
-        à droite: 44 45 46 47 59
-    Print (60)
-        à gauche: 56
+        à droite: 38 39 40 42 43
+    Term (60)
+        à gauche: 44 45 46
+        à droite: 41 42 43
+    Condition (61)
+        à gauche: 47 48 49 50
+        à droite: 34 37
+    Bool_Expr (62)
+        à gauche: 51 52 53 54 55 56 57 58
+        à droite: 47 48 49 50 62
+    Print (63)
+        à gauche: 59
         à droite: 18
-    Return (61)
-        à gauche: 57
+    Return (64)
+        à gauche: 60
         à droite: 19
-    Expr (62)
-        à gauche: 58 59
-        à droite: 56 57
+    Expr (65)
+        à gauche: 61 62
+        à droite: 59 60
 
 
 État 0
@@ -289,7 +313,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 9
 
-   43 Term: tLPAR . Arith_Expr tRPAR
+   46 Term: tLPAR . Arith_Expr tRPAR
 
     tLPAR  décalage et aller à l'état 9
     tNB    décalage et aller à l'état 11
@@ -309,16 +333,16 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 11
 
-   41 Term: tNB .
+   44 Term: tNB .
 
-    $défaut  réduction par utilisation de la règle 41 (Term)
+    $défaut  réduction par utilisation de la règle 44 (Term)
 
 
 État 12
 
-   42 Term: tID .
+   45 Term: tID .
 
-    $défaut  réduction par utilisation de la règle 42 (Term)
+    $défaut  réduction par utilisation de la règle 45 (Term)
 
 
 État 13
@@ -338,8 +362,8 @@ Non-terminaux, suivis des règles où ils apparaissent
 État 15
 
     6 ArgListNext: Arith_Expr . ArgListNextNext
-   36 Arith_Expr: Arith_Expr . tADD Factor
-   37           | Arith_Expr . tSUB Factor
+   39 Arith_Expr: Arith_Expr . tADD Factor
+   40           | Arith_Expr . tSUB Factor
 
     tCOMMA  décalage et aller à l'état 22
     tADD    décalage et aller à l'état 23
@@ -352,21 +376,21 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 16
 
-   35 Arith_Expr: Factor .
-   39 Factor: Factor . tMUL Term
-   40       | Factor . tDIV Term
+   38 Arith_Expr: Factor .
+   42 Factor: Factor . tMUL Term
+   43       | Factor . tDIV Term
 
     tMUL  décalage et aller à l'état 26
     tDIV  décalage et aller à l'état 27
 
-    $défaut  réduction par utilisation de la règle 35 (Arith_Expr)
+    $défaut  réduction par utilisation de la règle 38 (Arith_Expr)
 
 
 État 17
 
-   38 Factor: Term .
+   41 Factor: Term .
 
-    $défaut  réduction par utilisation de la règle 38 (Factor)
+    $défaut  réduction par utilisation de la règle 41 (Factor)
 
 
 État 18
@@ -378,9 +402,9 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 19
 
-   36 Arith_Expr: Arith_Expr . tADD Factor
-   37           | Arith_Expr . tSUB Factor
-   43 Term: tLPAR Arith_Expr . tRPAR
+   39 Arith_Expr: Arith_Expr . tADD Factor
+   40           | Arith_Expr . tSUB Factor
+   46 Term: tLPAR Arith_Expr . tRPAR
 
     tRPAR  décalage et aller à l'état 29
     tADD   décalage et aller à l'état 23
@@ -424,7 +448,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 23
 
-   36 Arith_Expr: Arith_Expr tADD . Factor
+   39 Arith_Expr: Arith_Expr tADD . Factor
 
     tLPAR  décalage et aller à l'état 9
     tNB    décalage et aller à l'état 11
@@ -436,7 +460,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 24
 
-   37 Arith_Expr: Arith_Expr tSUB . Factor
+   40 Arith_Expr: Arith_Expr tSUB . Factor
 
     tLPAR  décalage et aller à l'état 9
     tNB    décalage et aller à l'état 11
@@ -455,7 +479,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 26
 
-   39 Factor: Factor tMUL . Term
+   42 Factor: Factor tMUL . Term
 
     tLPAR  décalage et aller à l'état 9
     tNB    décalage et aller à l'état 11
@@ -466,7 +490,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 27
 
-   40 Factor: Factor tDIV . Term
+   43 Factor: Factor tDIV . Term
 
     tLPAR  décalage et aller à l'état 9
     tNB    décalage et aller à l'état 11
@@ -484,9 +508,9 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 29
 
-   43 Term: tLPAR Arith_Expr tRPAR .
+   46 Term: tLPAR Arith_Expr tRPAR .
 
-    $défaut  réduction par utilisation de la règle 43 (Term)
+    $défaut  réduction par utilisation de la règle 46 (Term)
 
 
 État 30
@@ -502,11 +526,11 @@ Non-terminaux, suivis des règles où ils apparaissent
 
     tPRINTF   décalage et aller à l'état 40
     tRETURN   décalage et aller à l'état 41
-    tIF       décalage et aller à l'état 42
-    tWHILE    décalage et aller à l'état 43
-    tCONST    décalage et aller à l'état 44
-    tINT      décalage et aller à l'état 45
-    tCOMMENT  décalage et aller à l'état 46
+    tWHILE    décalage et aller à l'état 42
+    tCONST    décalage et aller à l'état 43
+    tINT      décalage et aller à l'état 44
+    tCOMMENT  décalage et aller à l'état 45
+    tIF       décalage et aller à l'état 46
     tID       décalage et aller à l'état 47
 
     $défaut  réduction par utilisation de la règle 12 (Content)
@@ -539,8 +563,8 @@ Non-terminaux, suivis des règles où ils apparaissent
 État 34
 
     8 ArgListNextNext: tCOMMA Arith_Expr . ArgListNextNext
-   36 Arith_Expr: Arith_Expr . tADD Factor
-   37           | Arith_Expr . tSUB Factor
+   39 Arith_Expr: Arith_Expr . tADD Factor
+   40           | Arith_Expr . tSUB Factor
 
     tCOMMA  décalage et aller à l'état 22
     tADD    décalage et aller à l'état 23
@@ -553,40 +577,40 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 35
 
-   36 Arith_Expr: Arith_Expr tADD Factor .
-   39 Factor: Factor . tMUL Term
-   40       | Factor . tDIV Term
+   39 Arith_Expr: Arith_Expr tADD Factor .
+   42 Factor: Factor . tMUL Term
+   43       | Factor . tDIV Term
 
     tMUL  décalage et aller à l'état 26
     tDIV  décalage et aller à l'état 27
 
-    $défaut  réduction par utilisation de la règle 36 (Arith_Expr)
+    $défaut  réduction par utilisation de la règle 39 (Arith_Expr)
 
 
 État 36
 
-   37 Arith_Expr: Arith_Expr tSUB Factor .
-   39 Factor: Factor . tMUL Term
-   40       | Factor . tDIV Term
+   40 Arith_Expr: Arith_Expr tSUB Factor .
+   42 Factor: Factor . tMUL Term
+   43       | Factor . tDIV Term
 
     tMUL  décalage et aller à l'état 26
     tDIV  décalage et aller à l'état 27
 
-    $défaut  réduction par utilisation de la règle 37 (Arith_Expr)
+    $défaut  réduction par utilisation de la règle 40 (Arith_Expr)
 
 
 État 37
 
-   39 Factor: Factor tMUL Term .
+   42 Factor: Factor tMUL Term .
 
-    $défaut  réduction par utilisation de la règle 39 (Factor)
+    $défaut  réduction par utilisation de la règle 42 (Factor)
 
 
 État 38
 
-   40 Factor: Factor tDIV Term .
+   43 Factor: Factor tDIV Term .
 
-    $défaut  réduction par utilisation de la règle 40 (Factor)
+    $défaut  réduction par utilisation de la règle 43 (Factor)
 
 
 État 39
@@ -600,14 +624,14 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 40
 
-   56 Print: tPRINTF . tLPAR Expr tRPAR tSEMI
+   59 Print: tPRINTF . tLPAR Expr tRPAR tSEMI
 
     tLPAR  décalage et aller à l'état 60
 
 
 État 41
 
-   57 Return: tRETURN . Expr tSEMI
+   60 Return: tRETURN . Expr tSEMI
 
     tTRUE   décalage et aller à l'état 61
     tFALSE  décalage et aller à l'état 62
@@ -624,46 +648,46 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 42
 
-   31 LoopIF: tIF . tLPAR Condition tRPAR Body IfNext
+   37 LoopWHILE: tWHILE . tLPAR Condition tRPAR Body
 
     tLPAR  décalage et aller à l'état 66
 
 
 État 43
 
-   34 LoopWHILE: tWHILE . tLPAR Condition tRPAR Body
+   21 Constantes: tCONST . Dec tSEMI
 
-    tLPAR  décalage et aller à l'état 67
+    tID  décalage et aller à l'état 67
+
+    Dec  aller à l'état 68
 
 
 État 44
 
-   21 Constantes: tCONST . Dec tSEMI
+   25 Declaration: tINT . DecNext tSEMI
 
-    tID  décalage et aller à l'état 68
+    tID  décalage et aller à l'état 69
 
-    Dec  aller à l'état 69
+    DecNext  aller à l'état 70
 
 
 État 45
-
-   25 Declaration: tINT . DecNext tSEMI
-
-    tID  décalage et aller à l'état 70
-
-    DecNext  aller à l'état 71
-
-
-État 46
 
    20 Instruction: tCOMMENT .
 
     $défaut  réduction par utilisation de la règle 20 (Instruction)
 
 
+État 46
+
+   34 LoopIF: tIF . tLPAR Condition tRPAR $@2 Body $@3 IfNext
+
+    tLPAR  décalage et aller à l'état 71
+
+
 État 47
 
-   30 Affectation: tID . tASSIGN Arith_Expr tSEMI
+   31 Affectation: tID . tASSIGN Arith_Expr tSEMI
 
     tASSIGN  décalage et aller à l'état 72
 
@@ -681,11 +705,11 @@ Non-terminaux, suivis des règles où ils apparaissent
 
     tPRINTF   décalage et aller à l'état 40
     tRETURN   décalage et aller à l'état 41
-    tIF       décalage et aller à l'état 42
-    tWHILE    décalage et aller à l'état 43
-    tCONST    décalage et aller à l'état 44
-    tINT      décalage et aller à l'état 45
-    tCOMMENT  décalage et aller à l'état 46
+    tWHILE    décalage et aller à l'état 42
+    tCONST    décalage et aller à l'état 43
+    tINT      décalage et aller à l'état 44
+    tCOMMENT  décalage et aller à l'état 45
+    tIF       décalage et aller à l'état 46
     tID       décalage et aller à l'état 47
 
     $défaut  réduction par utilisation de la règle 12 (Content)
@@ -777,7 +801,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 60
 
-   56 Print: tPRINTF tLPAR . Expr tRPAR tSEMI
+   59 Print: tPRINTF tLPAR . Expr tRPAR tSEMI
 
     tTRUE   décalage et aller à l'état 61
     tFALSE  décalage et aller à l'état 62
@@ -794,29 +818,29 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 61
 
-   48 Bool_Expr: tTRUE .
+   51 Bool_Expr: tTRUE .
 
-    $défaut  réduction par utilisation de la règle 48 (Bool_Expr)
+    $défaut  réduction par utilisation de la règle 51 (Bool_Expr)
 
 
 État 62
 
-   49 Bool_Expr: tFALSE .
+   52 Bool_Expr: tFALSE .
 
-    $défaut  réduction par utilisation de la règle 49 (Bool_Expr)
+    $défaut  réduction par utilisation de la règle 52 (Bool_Expr)
 
 
 État 63
 
-   36 Arith_Expr: Arith_Expr . tADD Factor
-   37           | Arith_Expr . tSUB Factor
-   50 Bool_Expr: Arith_Expr . tLT Arith_Expr
-   51          | Arith_Expr . tGT Arith_Expr
-   52          | Arith_Expr . tGE Arith_Expr
-   53          | Arith_Expr . tLE Arith_Expr
-   54          | Arith_Expr . tNE Arith_Expr
-   55          | Arith_Expr . tEQ Arith_Expr
-   58 Expr: Arith_Expr .
+   39 Arith_Expr: Arith_Expr . tADD Factor
+   40           | Arith_Expr . tSUB Factor
+   53 Bool_Expr: Arith_Expr . tLT Arith_Expr
+   54          | Arith_Expr . tGT Arith_Expr
+   55          | Arith_Expr . tGE Arith_Expr
+   56          | Arith_Expr . tLE Arith_Expr
+   57          | Arith_Expr . tNE Arith_Expr
+   58          | Arith_Expr . tEQ Arith_Expr
+   61 Expr: Arith_Expr .
 
     tADD  décalage et aller à l'état 23
     tSUB  décalage et aller à l'état 24
@@ -827,26 +851,26 @@ Non-terminaux, suivis des règles où ils apparaissent
     tGE   décalage et aller à l'état 81
     tLE   décalage et aller à l'état 82
 
-    $défaut  réduction par utilisation de la règle 58 (Expr)
+    $défaut  réduction par utilisation de la règle 61 (Expr)
 
 
 État 64
 
-   59 Expr: Bool_Expr .
+   62 Expr: Bool_Expr .
 
-    $défaut  réduction par utilisation de la règle 59 (Expr)
+    $défaut  réduction par utilisation de la règle 62 (Expr)
 
 
 État 65
 
-   57 Return: tRETURN Expr . tSEMI
+   60 Return: tRETURN Expr . tSEMI
 
     tSEMI  décalage et aller à l'état 83
 
 
 État 66
 
-   31 LoopIF: tIF tLPAR . Condition tRPAR Body IfNext
+   37 LoopWHILE: tWHILE tLPAR . Condition tRPAR Body
 
     tTRUE   décalage et aller à l'état 61
     tFALSE  décalage et aller à l'état 62
@@ -863,7 +887,46 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 67
 
-   34 LoopWHILE: tWHILE tLPAR . Condition tRPAR Body
+   22 Dec: tID . tCOMMA DecNext
+   23    | tID .
+   24    | tID . tASSIGN Arith_Expr
+
+    tCOMMA   décalage et aller à l'état 87
+    tASSIGN  décalage et aller à l'état 88
+
+    $défaut  réduction par utilisation de la règle 23 (Dec)
+
+
+État 68
+
+   21 Constantes: tCONST Dec . tSEMI
+
+    tSEMI  décalage et aller à l'état 89
+
+
+État 69
+
+   26 DecNext: tID . tCOMMA DecNext
+   27        | tID .
+   28        | tID . tASSIGN Arith_Expr
+   30        | tID . tASSIGN $@1 tID tLPAR ArgList tRPAR
+
+    tCOMMA   décalage et aller à l'état 90
+    tASSIGN  décalage et aller à l'état 91
+
+    $défaut  réduction par utilisation de la règle 27 (DecNext)
+
+
+État 70
+
+   25 Declaration: tINT DecNext . tSEMI
+
+    tSEMI  décalage et aller à l'état 92
+
+
+État 71
+
+   34 LoopIF: tIF tLPAR . Condition tRPAR $@2 Body $@3 IfNext
 
     tTRUE   décalage et aller à l'état 61
     tFALSE  décalage et aller à l'état 62
@@ -874,52 +937,13 @@ Non-terminaux, suivis des règles où ils apparaissent
     Arith_Expr  aller à l'état 84
     Factor      aller à l'état 16
     Term        aller à l'état 17
-    Condition   aller à l'état 87
+    Condition   aller à l'état 93
     Bool_Expr   aller à l'état 86
-
-
-État 68
-
-   22 Dec: tID . tCOMMA DecNext
-   23    | tID .
-   24    | tID . tASSIGN Arith_Expr
-
-    tCOMMA   décalage et aller à l'état 88
-    tASSIGN  décalage et aller à l'état 89
-
-    $défaut  réduction par utilisation de la règle 23 (Dec)
-
-
-État 69
-
-   21 Constantes: tCONST Dec . tSEMI
-
-    tSEMI  décalage et aller à l'état 90
-
-
-État 70
-
-   26 DecNext: tID . tCOMMA DecNext
-   27        | tID .
-   28        | tID . tASSIGN Arith_Expr
-   29        | tID . tASSIGN tID tLPAR ArgList tRPAR
-
-    tCOMMA   décalage et aller à l'état 91
-    tASSIGN  décalage et aller à l'état 92
-
-    $défaut  réduction par utilisation de la règle 27 (DecNext)
-
-
-État 71
-
-   25 Declaration: tINT DecNext . tSEMI
-
-    tSEMI  décalage et aller à l'état 93
 
 
 État 72
 
-   30 Affectation: tID tASSIGN . Arith_Expr tSEMI
+   31 Affectation: tID tASSIGN . Arith_Expr tSEMI
 
     tLPAR  décalage et aller à l'état 9
     tNB    décalage et aller à l'état 11
@@ -953,14 +977,14 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 76
 
-   56 Print: tPRINTF tLPAR Expr . tRPAR tSEMI
+   59 Print: tPRINTF tLPAR Expr . tRPAR tSEMI
 
     tRPAR  décalage et aller à l'état 95
 
 
 État 77
 
-   55 Bool_Expr: Arith_Expr tEQ . Arith_Expr
+   58 Bool_Expr: Arith_Expr tEQ . Arith_Expr
 
     tLPAR  décalage et aller à l'état 9
     tNB    décalage et aller à l'état 11
@@ -973,7 +997,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 78
 
-   50 Bool_Expr: Arith_Expr tLT . Arith_Expr
+   53 Bool_Expr: Arith_Expr tLT . Arith_Expr
 
     tLPAR  décalage et aller à l'état 9
     tNB    décalage et aller à l'état 11
@@ -986,7 +1010,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 79
 
-   51 Bool_Expr: Arith_Expr tGT . Arith_Expr
+   54 Bool_Expr: Arith_Expr tGT . Arith_Expr
 
     tLPAR  décalage et aller à l'état 9
     tNB    décalage et aller à l'état 11
@@ -999,7 +1023,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 80
 
-   54 Bool_Expr: Arith_Expr tNE . Arith_Expr
+   57 Bool_Expr: Arith_Expr tNE . Arith_Expr
 
     tLPAR  décalage et aller à l'état 9
     tNB    décalage et aller à l'état 11
@@ -1012,7 +1036,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 81
 
-   52 Bool_Expr: Arith_Expr tGE . Arith_Expr
+   55 Bool_Expr: Arith_Expr tGE . Arith_Expr
 
     tLPAR  décalage et aller à l'état 9
     tNB    décalage et aller à l'état 11
@@ -1025,7 +1049,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 82
 
-   53 Bool_Expr: Arith_Expr tLE . Arith_Expr
+   56 Bool_Expr: Arith_Expr tLE . Arith_Expr
 
     tLPAR  décalage et aller à l'état 9
     tNB    décalage et aller à l'état 11
@@ -1038,21 +1062,21 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 83
 
-   57 Return: tRETURN Expr tSEMI .
+   60 Return: tRETURN Expr tSEMI .
 
-    $défaut  réduction par utilisation de la règle 57 (Return)
+    $défaut  réduction par utilisation de la règle 60 (Return)
 
 
 État 84
 
-   36 Arith_Expr: Arith_Expr . tADD Factor
-   37           | Arith_Expr . tSUB Factor
-   50 Bool_Expr: Arith_Expr . tLT Arith_Expr
-   51          | Arith_Expr . tGT Arith_Expr
-   52          | Arith_Expr . tGE Arith_Expr
-   53          | Arith_Expr . tLE Arith_Expr
-   54          | Arith_Expr . tNE Arith_Expr
-   55          | Arith_Expr . tEQ Arith_Expr
+   39 Arith_Expr: Arith_Expr . tADD Factor
+   40           | Arith_Expr . tSUB Factor
+   53 Bool_Expr: Arith_Expr . tLT Arith_Expr
+   54          | Arith_Expr . tGT Arith_Expr
+   55          | Arith_Expr . tGE Arith_Expr
+   56          | Arith_Expr . tLE Arith_Expr
+   57          | Arith_Expr . tNE Arith_Expr
+   58          | Arith_Expr . tEQ Arith_Expr
 
     tADD  décalage et aller à l'état 23
     tSUB  décalage et aller à l'état 24
@@ -1066,42 +1090,35 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 85
 
-   31 LoopIF: tIF tLPAR Condition . tRPAR Body IfNext
+   37 LoopWHILE: tWHILE tLPAR Condition . tRPAR Body
 
     tRPAR  décalage et aller à l'état 102
 
 
 État 86
 
-   44 Condition: Bool_Expr .
-   45          | Bool_Expr . tAND Bool_Expr
-   46          | Bool_Expr . tNOT Bool_Expr
-   47          | Bool_Expr . tOR Bool_Expr
+   47 Condition: Bool_Expr .
+   48          | Bool_Expr . tAND Bool_Expr
+   49          | Bool_Expr . tNOT Bool_Expr
+   50          | Bool_Expr . tOR Bool_Expr
 
     tAND  décalage et aller à l'état 103
     tOR   décalage et aller à l'état 104
     tNOT  décalage et aller à l'état 105
 
-    $défaut  réduction par utilisation de la règle 44 (Condition)
+    $défaut  réduction par utilisation de la règle 47 (Condition)
 
 
 État 87
 
-   34 LoopWHILE: tWHILE tLPAR Condition . tRPAR Body
+   22 Dec: tID tCOMMA . DecNext
 
-    tRPAR  décalage et aller à l'état 106
+    tID  décalage et aller à l'état 69
+
+    DecNext  aller à l'état 106
 
 
 État 88
-
-   22 Dec: tID tCOMMA . DecNext
-
-    tID  décalage et aller à l'état 70
-
-    DecNext  aller à l'état 107
-
-
-État 89
 
    24 Dec: tID tASSIGN . Arith_Expr
 
@@ -1109,53 +1126,63 @@ Non-terminaux, suivis des règles où ils apparaissent
     tNB    décalage et aller à l'état 11
     tID    décalage et aller à l'état 12
 
-    Arith_Expr  aller à l'état 108
+    Arith_Expr  aller à l'état 107
     Factor      aller à l'état 16
     Term        aller à l'état 17
 
 
-État 90
+État 89
 
    21 Constantes: tCONST Dec tSEMI .
 
     $défaut  réduction par utilisation de la règle 21 (Constantes)
 
 
-État 91
+État 90
 
    26 DecNext: tID tCOMMA . DecNext
 
-    tID  décalage et aller à l'état 70
+    tID  décalage et aller à l'état 69
 
-    DecNext  aller à l'état 109
+    DecNext  aller à l'état 108
 
 
-État 92
+État 91
 
    28 DecNext: tID tASSIGN . Arith_Expr
-   29        | tID tASSIGN . tID tLPAR ArgList tRPAR
+   30        | tID tASSIGN . $@1 tID tLPAR ArgList tRPAR
 
     tLPAR  décalage et aller à l'état 9
     tNB    décalage et aller à l'état 11
-    tID    décalage et aller à l'état 110
+    tID    décalage et aller à l'état 12
 
-    Arith_Expr  aller à l'état 111
+    tID  [réduction par utilisation de la règle 29 ($@1)]
+
+    $@1         aller à l'état 109
+    Arith_Expr  aller à l'état 110
     Factor      aller à l'état 16
     Term        aller à l'état 17
 
 
-État 93
+État 92
 
    25 Declaration: tINT DecNext tSEMI .
 
     $défaut  réduction par utilisation de la règle 25 (Declaration)
 
 
+État 93
+
+   34 LoopIF: tIF tLPAR Condition . tRPAR $@2 Body $@3 IfNext
+
+    tRPAR  décalage et aller à l'état 111
+
+
 État 94
 
-   30 Affectation: tID tASSIGN Arith_Expr . tSEMI
-   36 Arith_Expr: Arith_Expr . tADD Factor
-   37           | Arith_Expr . tSUB Factor
+   31 Affectation: tID tASSIGN Arith_Expr . tSEMI
+   39 Arith_Expr: Arith_Expr . tADD Factor
+   40           | Arith_Expr . tSUB Factor
 
     tSEMI  décalage et aller à l'état 112
     tADD   décalage et aller à l'état 23
@@ -1164,76 +1191,28 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 95
 
-   56 Print: tPRINTF tLPAR Expr tRPAR . tSEMI
+   59 Print: tPRINTF tLPAR Expr tRPAR . tSEMI
 
     tSEMI  décalage et aller à l'état 113
 
 
 État 96
 
-   36 Arith_Expr: Arith_Expr . tADD Factor
-   37           | Arith_Expr . tSUB Factor
-   55 Bool_Expr: Arith_Expr tEQ Arith_Expr .
+   39 Arith_Expr: Arith_Expr . tADD Factor
+   40           | Arith_Expr . tSUB Factor
+   58 Bool_Expr: Arith_Expr tEQ Arith_Expr .
 
     tADD  décalage et aller à l'état 23
     tSUB  décalage et aller à l'état 24
 
-    $défaut  réduction par utilisation de la règle 55 (Bool_Expr)
+    $défaut  réduction par utilisation de la règle 58 (Bool_Expr)
 
 
 État 97
 
-   36 Arith_Expr: Arith_Expr . tADD Factor
-   37           | Arith_Expr . tSUB Factor
-   50 Bool_Expr: Arith_Expr tLT Arith_Expr .
-
-    tADD  décalage et aller à l'état 23
-    tSUB  décalage et aller à l'état 24
-
-    $défaut  réduction par utilisation de la règle 50 (Bool_Expr)
-
-
-État 98
-
-   36 Arith_Expr: Arith_Expr . tADD Factor
-   37           | Arith_Expr . tSUB Factor
-   51 Bool_Expr: Arith_Expr tGT Arith_Expr .
-
-    tADD  décalage et aller à l'état 23
-    tSUB  décalage et aller à l'état 24
-
-    $défaut  réduction par utilisation de la règle 51 (Bool_Expr)
-
-
-État 99
-
-   36 Arith_Expr: Arith_Expr . tADD Factor
-   37           | Arith_Expr . tSUB Factor
-   54 Bool_Expr: Arith_Expr tNE Arith_Expr .
-
-    tADD  décalage et aller à l'état 23
-    tSUB  décalage et aller à l'état 24
-
-    $défaut  réduction par utilisation de la règle 54 (Bool_Expr)
-
-
-État 100
-
-   36 Arith_Expr: Arith_Expr . tADD Factor
-   37           | Arith_Expr . tSUB Factor
-   52 Bool_Expr: Arith_Expr tGE Arith_Expr .
-
-    tADD  décalage et aller à l'état 23
-    tSUB  décalage et aller à l'état 24
-
-    $défaut  réduction par utilisation de la règle 52 (Bool_Expr)
-
-
-État 101
-
-   36 Arith_Expr: Arith_Expr . tADD Factor
-   37           | Arith_Expr . tSUB Factor
-   53 Bool_Expr: Arith_Expr tLE Arith_Expr .
+   39 Arith_Expr: Arith_Expr . tADD Factor
+   40           | Arith_Expr . tSUB Factor
+   53 Bool_Expr: Arith_Expr tLT Arith_Expr .
 
     tADD  décalage et aller à l'état 23
     tSUB  décalage et aller à l'état 24
@@ -1241,9 +1220,57 @@ Non-terminaux, suivis des règles où ils apparaissent
     $défaut  réduction par utilisation de la règle 53 (Bool_Expr)
 
 
+État 98
+
+   39 Arith_Expr: Arith_Expr . tADD Factor
+   40           | Arith_Expr . tSUB Factor
+   54 Bool_Expr: Arith_Expr tGT Arith_Expr .
+
+    tADD  décalage et aller à l'état 23
+    tSUB  décalage et aller à l'état 24
+
+    $défaut  réduction par utilisation de la règle 54 (Bool_Expr)
+
+
+État 99
+
+   39 Arith_Expr: Arith_Expr . tADD Factor
+   40           | Arith_Expr . tSUB Factor
+   57 Bool_Expr: Arith_Expr tNE Arith_Expr .
+
+    tADD  décalage et aller à l'état 23
+    tSUB  décalage et aller à l'état 24
+
+    $défaut  réduction par utilisation de la règle 57 (Bool_Expr)
+
+
+État 100
+
+   39 Arith_Expr: Arith_Expr . tADD Factor
+   40           | Arith_Expr . tSUB Factor
+   55 Bool_Expr: Arith_Expr tGE Arith_Expr .
+
+    tADD  décalage et aller à l'état 23
+    tSUB  décalage et aller à l'état 24
+
+    $défaut  réduction par utilisation de la règle 55 (Bool_Expr)
+
+
+État 101
+
+   39 Arith_Expr: Arith_Expr . tADD Factor
+   40           | Arith_Expr . tSUB Factor
+   56 Bool_Expr: Arith_Expr tLE Arith_Expr .
+
+    tADD  décalage et aller à l'état 23
+    tSUB  décalage et aller à l'état 24
+
+    $défaut  réduction par utilisation de la règle 56 (Bool_Expr)
+
+
 État 102
 
-   31 LoopIF: tIF tLPAR Condition tRPAR . Body IfNext
+   37 LoopWHILE: tWHILE tLPAR Condition tRPAR . Body
 
     tLBRACE  décalage et aller à l'état 31
 
@@ -1252,7 +1279,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 103
 
-   45 Condition: Bool_Expr tAND . Bool_Expr
+   48 Condition: Bool_Expr tAND . Bool_Expr
 
     tTRUE   décalage et aller à l'état 61
     tFALSE  décalage et aller à l'état 62
@@ -1268,7 +1295,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 104
 
-   47 Condition: Bool_Expr tOR . Bool_Expr
+   50 Condition: Bool_Expr tOR . Bool_Expr
 
     tTRUE   décalage et aller à l'état 61
     tFALSE  décalage et aller à l'état 62
@@ -1284,7 +1311,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 105
 
-   46 Condition: Bool_Expr tNOT . Bool_Expr
+   49 Condition: Bool_Expr tNOT . Bool_Expr
 
     tTRUE   décalage et aller à l'état 61
     tFALSE  décalage et aller à l'état 62
@@ -1300,25 +1327,16 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 106
 
-   34 LoopWHILE: tWHILE tLPAR Condition tRPAR . Body
-
-    tLBRACE  décalage et aller à l'état 31
-
-    Body  aller à l'état 118
-
-
-État 107
-
    22 Dec: tID tCOMMA DecNext .
 
     $défaut  réduction par utilisation de la règle 22 (Dec)
 
 
-État 108
+État 107
 
    24 Dec: tID tASSIGN Arith_Expr .
-   36 Arith_Expr: Arith_Expr . tADD Factor
-   37           | Arith_Expr . tSUB Factor
+   39 Arith_Expr: Arith_Expr . tADD Factor
+   40           | Arith_Expr . tSUB Factor
 
     tADD  décalage et aller à l'état 23
     tSUB  décalage et aller à l'état 24
@@ -1326,28 +1344,25 @@ Non-terminaux, suivis des règles où ils apparaissent
     $défaut  réduction par utilisation de la règle 24 (Dec)
 
 
-État 109
+État 108
 
    26 DecNext: tID tCOMMA DecNext .
 
     $défaut  réduction par utilisation de la règle 26 (DecNext)
 
 
+État 109
+
+   30 DecNext: tID tASSIGN $@1 . tID tLPAR ArgList tRPAR
+
+    tID  décalage et aller à l'état 118
+
+
 État 110
 
-   29 DecNext: tID tASSIGN tID . tLPAR ArgList tRPAR
-   42 Term: tID .
-
-    tLPAR  décalage et aller à l'état 119
-
-    $défaut  réduction par utilisation de la règle 42 (Term)
-
-
-État 111
-
    28 DecNext: tID tASSIGN Arith_Expr .
-   36 Arith_Expr: Arith_Expr . tADD Factor
-   37           | Arith_Expr . tSUB Factor
+   39 Arith_Expr: Arith_Expr . tADD Factor
+   40           | Arith_Expr . tSUB Factor
 
     tADD  décalage et aller à l'état 23
     tSUB  décalage et aller à l'état 24
@@ -1355,62 +1370,76 @@ Non-terminaux, suivis des règles où ils apparaissent
     $défaut  réduction par utilisation de la règle 28 (DecNext)
 
 
+État 111
+
+   34 LoopIF: tIF tLPAR Condition tRPAR . $@2 Body $@3 IfNext
+
+    $défaut  réduction par utilisation de la règle 32 ($@2)
+
+    $@2  aller à l'état 119
+
+
 État 112
 
-   30 Affectation: tID tASSIGN Arith_Expr tSEMI .
+   31 Affectation: tID tASSIGN Arith_Expr tSEMI .
 
-    $défaut  réduction par utilisation de la règle 30 (Affectation)
+    $défaut  réduction par utilisation de la règle 31 (Affectation)
 
 
 État 113
 
-   56 Print: tPRINTF tLPAR Expr tRPAR tSEMI .
+   59 Print: tPRINTF tLPAR Expr tRPAR tSEMI .
 
-    $défaut  réduction par utilisation de la règle 56 (Print)
+    $défaut  réduction par utilisation de la règle 59 (Print)
 
 
 État 114
 
-   31 LoopIF: tIF tLPAR Condition tRPAR Body . IfNext
+   37 LoopWHILE: tWHILE tLPAR Condition tRPAR Body .
 
-    tELSE  décalage et aller à l'état 120
-
-    $défaut  réduction par utilisation de la règle 33 (IfNext)
-
-    IfNext  aller à l'état 121
+    $défaut  réduction par utilisation de la règle 37 (LoopWHILE)
 
 
 État 115
 
-   45 Condition: Bool_Expr tAND Bool_Expr .
+   48 Condition: Bool_Expr tAND Bool_Expr .
 
-    $défaut  réduction par utilisation de la règle 45 (Condition)
+    $défaut  réduction par utilisation de la règle 48 (Condition)
 
 
 État 116
 
-   47 Condition: Bool_Expr tOR Bool_Expr .
+   50 Condition: Bool_Expr tOR Bool_Expr .
 
-    $défaut  réduction par utilisation de la règle 47 (Condition)
+    $défaut  réduction par utilisation de la règle 50 (Condition)
 
 
 État 117
 
-   46 Condition: Bool_Expr tNOT Bool_Expr .
+   49 Condition: Bool_Expr tNOT Bool_Expr .
 
-    $défaut  réduction par utilisation de la règle 46 (Condition)
+    $défaut  réduction par utilisation de la règle 49 (Condition)
 
 
 État 118
 
-   34 LoopWHILE: tWHILE tLPAR Condition tRPAR Body .
+   30 DecNext: tID tASSIGN $@1 tID . tLPAR ArgList tRPAR
 
-    $défaut  réduction par utilisation de la règle 34 (LoopWHILE)
+    tLPAR  décalage et aller à l'état 120
 
 
 État 119
 
-   29 DecNext: tID tASSIGN tID tLPAR . ArgList tRPAR
+   34 LoopIF: tIF tLPAR Condition tRPAR $@2 . Body $@3 IfNext
+
+    tLBRACE  décalage et aller à l'état 31
+
+    Body  aller à l'état 121
+
+
+État 120
+
+   30 DecNext: tID tASSIGN $@1 tID tLPAR . ArgList tRPAR
 
     tLPAR  décalage et aller à l'état 9
     tINT   décalage et aller à l'état 10
@@ -1426,38 +1455,58 @@ Non-terminaux, suivis des règles où ils apparaissent
     Term         aller à l'état 17
 
 
-État 120
-
-   32 IfNext: tELSE . Body
-
-    tLBRACE  décalage et aller à l'état 31
-
-    Body  aller à l'état 123
-
-
 État 121
 
-   31 LoopIF: tIF tLPAR Condition tRPAR Body IfNext .
+   34 LoopIF: tIF tLPAR Condition tRPAR $@2 Body . $@3 IfNext
 
-    $défaut  réduction par utilisation de la règle 31 (LoopIF)
+    $défaut  réduction par utilisation de la règle 33 ($@3)
+
+    $@3  aller à l'état 123
 
 
 État 122
 
-   29 DecNext: tID tASSIGN tID tLPAR ArgList . tRPAR
+   30 DecNext: tID tASSIGN $@1 tID tLPAR ArgList . tRPAR
 
     tRPAR  décalage et aller à l'état 124
 
 
 État 123
 
-   32 IfNext: tELSE Body .
+   34 LoopIF: tIF tLPAR Condition tRPAR $@2 Body $@3 . IfNext
 
-    $défaut  réduction par utilisation de la règle 32 (IfNext)
+    tELSE  décalage et aller à l'état 125
+
+    $défaut  réduction par utilisation de la règle 36 (IfNext)
+
+    IfNext  aller à l'état 126
 
 
 État 124
 
-   29 DecNext: tID tASSIGN tID tLPAR ArgList tRPAR .
+   30 DecNext: tID tASSIGN $@1 tID tLPAR ArgList tRPAR .
 
-    $défaut  réduction par utilisation de la règle 29 (DecNext)
+    $défaut  réduction par utilisation de la règle 30 (DecNext)
+
+
+État 125
+
+   35 IfNext: tELSE . Body
+
+    tLBRACE  décalage et aller à l'état 31
+
+    Body  aller à l'état 127
+
+
+État 126
+
+   34 LoopIF: tIF tLPAR Condition tRPAR $@2 Body $@3 IfNext .
+
+    $défaut  réduction par utilisation de la règle 34 (LoopIF)
+
+
+État 127
+
+   35 IfNext: tELSE Body .
+
+    $défaut  réduction par utilisation de la règle 35 (IfNext)

@@ -35,8 +35,14 @@ int add_symb_var_ts(char nom[16], int isInit, TypeTS type)
     {
         if (strcmp(TS[i].nom, nom) == 0)
         {
-            fprintf(stderr, "Erreur add_symb_var_ts : Le symbole '%s' est déjà déclaré dans ce scope\n", nom);
+            if (TS[i].isInit == 0){
+                TS[i].isInit = 1;
+                TS[indexCst].scope = global_scope;
+                return 1;
+            } else {
+                fprintf(stderr, "Erreur add_symb_var_ts : Le symbole '%s' est déjà déclaré dans ce scope\n", nom);
             return 0; // Retourne 0 pour indiquer une erreur
+            }
         }
     }
 
@@ -59,15 +65,22 @@ int add_symb_var_ts(char nom[16], int isInit, TypeTS type)
     }
 }
 
-int add_symb_tmp_ts(int isInit, TypeTS type)
+/**
+ * @brief ajoute un symbole dans le tableau temporaire 
+ * 
+ * @param isInit 
+ * @param type 
+ * @return int 
+ */
+int add_symb_tmp_ts()
 {
     //Si il reste des emplacements pour les variables temporaires
     if (indexTmp > indexCst)
     {
-        TS[indexCst].isInit = isInit;
+        TS[indexCst].isInit = 0;
         TS[indexCst].offset = global_offset;
         global_offset++;
-        TS[indexCst].type = type;
+        TS[indexCst].type = INT;
         TS[indexCst].scope = global_scope;
         indexTmp--;
         return 1; // Retourne 1 pour indiquer une insertion réussie
@@ -267,6 +280,18 @@ void print_TS_cst()
     }
 }
 
+void print_TS_tmp()
+{
+    printf("-----------------------------------------\n");
+    printf("   TABLE DES VAR TEMPORAIRES \n");
+    printf("-----------------------------------------\n");
+    printf("Nom\t| isInit\t| Type\t| Offset\t| Profondeur\n");
+    for (int i = indexTmp; i < TS_SIZE; i++)
+    {
+        printf("%s\t| %d\t| %s\t| %d\t| %d\n",
+               TS[i].nom, TS[i].isInit, TypeTS_to_string(TS[i].type), TS[i].offset, TS[i].scope);
+    }
+}
 /*int main()
 {
     return 1;

@@ -1,6 +1,6 @@
 GRM=parser.y
 LEX=lex.l
-BIN=calc
+BIN=test
 
 CC=gcc
 CFLAGS=-Wall -g
@@ -22,4 +22,4 @@ $(BIN): $(OBJ)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@
 
 clean:
-	rm $(OBJ) y.tab.c y.tab.h lex.yy.c parser.tab.c parser.tab.h
+	rm $(OBJ) y.tab.c y.tab.h lex.yy.c parser.tab.c 

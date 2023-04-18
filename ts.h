@@ -20,7 +20,7 @@ typedef struct
 
 
 int add_symb_var_ts(char nom[16], int isInit, TypeTS type); // ajoute une var à la table des symboles
-int add_symb_tmp_ts(int isInit, TypeTS type); // ajoute une var tmp à la table des symboles
+int add_symb_tmp_ts(); // ajoute une var tmp à la table des symboles
 int rmv_symb_ts(); // suprime la dernière var 
 int rmv_symb_tmp_ts(int combien); // supprime combien var tmp
 int get_addr_var_ts(char var[16]); // renvoie l'@ de var
@@ -33,6 +33,7 @@ void increase_scope_ts(); // augmente le global scope
 void deleteTS();
 char* TypeTS_to_string(TypeTS t);
 void print_TS_cst();  // affiche la table des symboles (non temporaires)
+void print_TS_tmp();
 
 
 #endif

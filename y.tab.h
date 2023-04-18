@@ -52,37 +52,37 @@ extern int yydebug;
     tMAIN = 258,
     tPRINTF = 259,
     tRETURN = 260,
-    tIF = 261,
-    tELSE = 262,
-    tWHILE = 263,
-    tVOID = 264,
-    tTRUE = 265,
-    tFALSE = 266,
-    tLPAR = 267,
-    tRPAR = 268,
-    tLBRACE = 269,
-    tRBRACE = 270,
-    tCONST = 271,
-    tINT = 272,
-    tCOMMA = 273,
-    tSEMI = 274,
-    tADD = 275,
-    tSUB = 276,
-    tMUL = 277,
-    tDIV = 278,
-    tEQ = 279,
-    tLT = 280,
-    tGT = 281,
-    tNE = 282,
-    tAND = 283,
-    tOR = 284,
-    tGE = 285,
-    tLE = 286,
-    tASSIGN = 287,
-    tNOT = 288,
-    tCOMMENT = 289,
-    tERROR = 290,
-    tNB = 291,
+    tELSE = 261,
+    tWHILE = 262,
+    tVOID = 263,
+    tTRUE = 264,
+    tFALSE = 265,
+    tLPAR = 266,
+    tRPAR = 267,
+    tLBRACE = 268,
+    tRBRACE = 269,
+    tCONST = 270,
+    tINT = 271,
+    tCOMMA = 272,
+    tSEMI = 273,
+    tADD = 274,
+    tSUB = 275,
+    tMUL = 276,
+    tDIV = 277,
+    tEQ = 278,
+    tLT = 279,
+    tGT = 280,
+    tNE = 281,
+    tAND = 282,
+    tOR = 283,
+    tGE = 284,
+    tLE = 285,
+    tASSIGN = 286,
+    tNOT = 287,
+    tCOMMENT = 288,
+    tERROR = 289,
+    tNB = 290,
+    tIF = 291,
     tID = 292
   };
 #endif
@@ -90,44 +90,44 @@ extern int yydebug;
 #define tMAIN 258
 #define tPRINTF 259
 #define tRETURN 260
-#define tIF 261
-#define tELSE 262
-#define tWHILE 263
-#define tVOID 264
-#define tTRUE 265
-#define tFALSE 266
-#define tLPAR 267
-#define tRPAR 268
-#define tLBRACE 269
-#define tRBRACE 270
-#define tCONST 271
-#define tINT 272
-#define tCOMMA 273
-#define tSEMI 274
-#define tADD 275
-#define tSUB 276
-#define tMUL 277
-#define tDIV 278
-#define tEQ 279
-#define tLT 280
-#define tGT 281
-#define tNE 282
-#define tAND 283
-#define tOR 284
-#define tGE 285
-#define tLE 286
-#define tASSIGN 287
-#define tNOT 288
-#define tCOMMENT 289
-#define tERROR 290
-#define tNB 291
+#define tELSE 261
+#define tWHILE 262
+#define tVOID 263
+#define tTRUE 264
+#define tFALSE 265
+#define tLPAR 266
+#define tRPAR 267
+#define tLBRACE 268
+#define tRBRACE 269
+#define tCONST 270
+#define tINT 271
+#define tCOMMA 272
+#define tSEMI 273
+#define tADD 274
+#define tSUB 275
+#define tMUL 276
+#define tDIV 277
+#define tEQ 278
+#define tLT 279
+#define tGT 280
+#define tNE 281
+#define tAND 282
+#define tOR 283
+#define tGE 284
+#define tLE 285
+#define tASSIGN 286
+#define tNOT 287
+#define tCOMMENT 288
+#define tERROR 289
+#define tNB 290
+#define tIF 291
 #define tID 292
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 14 "parser.y"
+#line 15 "parser.y"
  int nb ; char str[16];
 
 #line 134 "y.tab.h"
@@ -143,7 +143,7 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 /* "%code provides" blocks.  */
-#line 9 "parser.y"
+#line 10 "parser.y"
 
     int yylex(void);
     void yyerror(const char*);

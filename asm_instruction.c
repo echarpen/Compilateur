@@ -40,6 +40,35 @@ void add_cop(int addr) {
     rmv_symb_tmp_ts(1);
 }
 
+int add_jump(Operateur op, int expr1){
+    Instruction instr = {index_asm, op, expr1, -1, -1};
+    ASM[index_asm] = instr ;
+    index_asm++;
+    return index_asm-1; 
+}
+
+// AUTRES
+
+void patch(int from, int to) { 
+    ASM[from].expr1 = to ;
+}
+
+int get_last_line_asm(){
+    return index_asm-1;
+}
+
+void asm_save_table(FILE* input) {
+    int i=0;
+    while(i<index_asm) {
+        fprintf(input, 
+            "%s %d %d %d \n", 
+            Operateur_to_string(ASM[i].op), 
+            ASM[i].expr1, 
+            ASM[i].expr2, 
+            ASM[i].expr3);
+        i++;
+    }
+}
 
 char* Operateur_to_string(Operateur o){
     switch (o){
@@ -81,6 +110,7 @@ char* Operateur_to_string(Operateur o){
 
 void print_tab_asm()
 {
+    printf("\n");
     printf("-------------------------------------------\n");
     printf("        TABLE DES INSTRUCTIONS\n");
     printf("-------------------------------------------\n");
@@ -92,4 +122,5 @@ void print_tab_asm()
             ASM[i].ligne_nb, Operateur_to_string(ASM[i].op), ASM[i].expr1, ASM[i].expr2, ASM[i].expr3);
     }
     printf("-------------------------------------------\n");
+    printf("\n");
 }

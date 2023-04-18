@@ -24,6 +24,10 @@ void add_instruc2(Operateur op, int expr1, int expr2); //ajout d'une instruction
 void add_instruc1(Operateur op, int expr1); //ajout d'une instruction avec 1 opérande
 void add_arithm(Operateur op); //ajout d'une expr arithmetique dans la table d'assembleur
 void add_cop(int addr);
+void asm_save_table(FILE* input);
+int add_jump(Operateur op, int expr1);
+void patch(int from, int to);
+int get_last_line_asm();
 char* Operateur_to_string(Operateur o);
 void print_tab_asm();
 
