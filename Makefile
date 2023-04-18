@@ -1,13 +1,25 @@
-build: 
-    bison -t -v -d parser.y
-    flex lex.l
-    gcc -o test parser.tab.c lex.yy.c
+GRM=parser.y
+LEX=lex.l
+BIN=calc
 
-	gcc -c -Wall -g ts.c 
+CC=gcc
+CFLAGS=-Wall -g
 
+OBJ=y.tab.o lex.yy.o ts.o asm_instruction.o
+
+all: $(BIN)
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
+
+y.tab.c: $(GRM)
+	yacc -d $<
+
+lex.yy.c: $(LEX)
+	flex $<
+
+$(BIN): $(OBJ)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@
 
 clean:
-    rm test parser.tab.c lex.yy.c parser.tab.h parser.output
-
-test:
-    ./test < fonctionTest.c
+	rm $(OBJ) y.tab.c y.tab.h lex.yy.c parser.tab.c parser.tab.h

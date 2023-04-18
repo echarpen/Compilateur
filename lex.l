@@ -62,8 +62,8 @@
 " " {}
 [ \t\n]+ {}
 
-[a-zA-Z]+[a-zA-Z0-9]* {yyval.str, return tID;}
--?[0-9]+ {return tNB;}
+[a-zA-Z]+[a-zA-Z0-9]* {strcpy(yylval.str , yytext); return tID;}
+-?[0-9]+ {yylval.nb = (int) strtold(yytext, NULL); return tNB;}
 [0x]+[0-9]+ {return tNB;}
 
 . {return tERROR;} 

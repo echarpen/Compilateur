@@ -1,8 +1,8 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
-#include <ts.h>
-#include <asm_instruction.h>
+#include "ts.h"
+#include "asm_instruction.h"
 int var[24];
 %}
 
@@ -64,7 +64,13 @@ DecNext : tID tCOMMA DecNext
         | tID tASSIGN Arith_Expr 
         | tID tASSIGN tID tLPAR ArgList tRPAR ; 
 
-Affectation : tID tASSIGN Arith_Expr tSEMI ;
+Affectation : tID tASSIGN Arith_Expr tSEMI {
+                        add_cop(get_addr_var_ts($1)); 
+                        add_symb_var_ts($1,1, INT);
+                        print_TS_cst();
+                        print_tab_asm();
+                        printf("Valeur de $1 %s",$1);
+                        };
             
 
 
@@ -80,11 +86,15 @@ LoopWHILE : tWHILE tLPAR  Condition tRPAR  Body ;
 Arith_Expr : Factor 
            | Arith_Expr tADD Factor {
            // on genere la fct assembleur correspondante add @res @op1 @op2, on recup les operandes avec la ram, @res variable tempo
+                add_symb_tmp_ts(0, INT);
                 add_arithm(ADD);
-                add_symb_tmp_ts("", 0, INT);}
+                printf("ADD\n");
+                print_tab_asm();}
            | Arith_Expr tSUB Factor{
+                add_symb_tmp_ts(0, INT);
                 add_arithm(SUB);
-                add_symb_tmp_ts("", 0, INT);}
+                printf("SUB\n");
+                print_tab_asm();}
             
            //mettre actions simples, printf pour verifier que grammaire est bonne, printf ensuite transforme en fprintf des instructions en asm, il nous faut recuper l @ dans la ts
 
@@ -93,10 +103,18 @@ Factor : Term
        | Factor tDIV Term ;
 
 Term : tNB {
+        add_symb_tmp_ts(0, INT);
         add_instruc2(AFC, get_last_tmp_addr(), $1);
+        printf("op1 = %d\n",get_last_tmp_addr());
+        printf("tNB\n");
+        print_tab_asm();
         }
      | tID  {
+        add_symb_tmp_ts(0, INT);
         add_instruc2(COP, get_last_tmp_addr(), get_addr_var_ts($1));
+        printf("op1 = %d\n",get_last_tmp_addr());
+        printf("tID\n");
+        print_tab_asm();
         }
      | tLPAR Arith_Expr tRPAR;
 
@@ -104,30 +122,41 @@ Term : tNB {
 Condition : Bool_Expr 
           | Bool_Expr tAND Bool_Expr {
                 add_arithm(AND);
-                add_symb_tmp_ts("", 0, INT);
+                printf("AND\n");
+                print_tab_asm();
+                add_symb_tmp_ts(0, INT);
+            
           }
           | Bool_Expr tNOT Bool_Expr 
           | Bool_Expr tOR Bool_Expr {
                 add_arithm(OR);
-                add_symb_tmp_ts("", 0, INT);
+                printf("OR\n");
+                print_tab_asm();
+                add_symb_tmp_ts(0, INT);
           };
 
 Bool_Expr : tTRUE 
           | tFALSE 
           | Arith_Expr tLT Arith_Expr{
                 add_arithm(INF);
-                add_symb_tmp_ts("", 0, INT);
+                printf("INF\n");
+                print_tab_asm();
+                add_symb_tmp_ts(0, INT);
           }
           | Arith_Expr tGT Arith_Expr {
                 add_arithm(SUP);
-                add_symb_tmp_ts("", 0, INT);
+                printf("SUP\n");
+                print_tab_asm();
+                add_symb_tmp_ts(0, INT);
           }
           | Arith_Expr tGE Arith_Expr
           | Arith_Expr tLE Arith_Expr
           | Arith_Expr tNE Arith_Expr
           | Arith_Expr tEQ Arith_Expr {
                 add_arithm(EQU);
-                add_symb_tmp_ts("", 0, INT);
+                printf("EQU\n");
+                print_tab_asm();
+                add_symb_tmp_ts(0, INT);
           }; 
 
 
