@@ -19,10 +19,11 @@ typedef struct
 } SYMBOLE;
 
 
-int add_symb_var_ts(char nom[16], int isInit, TypeTS type); // ajoute une var à la table des symboles
-int add_symb_tmp_ts(); // ajoute une var tmp à la table des symboles
-int rmv_symb_ts(); // suprime la dernière var 
-int rmv_symb_tmp_ts(int combien); // supprime combien var tmp
+void add_symb_var_ts(char nom[16], int isInit, TypeTS type); // ajoute une var à la table des symboles
+void add_symb_tmp_ts(); // ajoute une var tmp à la table des symboles
+void rmv_symb_ts(); // suprime la dernière var 
+void rmv_symb_tmp_ts(int combien); // supprime combien var tmp
+void ts_init(char nom[16]); //pas isInit à 1
 int get_addr_var_ts(char var[16]); // renvoie l'@ de var
 int get_last_tmp_addr(); // renvoie l'@ de la dernière var tmp
 int get_second_to_last_tmp_addr(); // renvoie l'@ de l'avant dernière var tmp

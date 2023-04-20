@@ -29,15 +29,18 @@ void add_instruc1(Operateur op, int expr1){
 
 void add_arithm(Operateur op){
     add_instruc3(op,get_second_to_last_tmp_addr(),get_second_to_last_tmp_addr(),get_last_tmp_addr());
-    printf("op1 = %d\n",get_second_to_last_tmp_addr());
-    printf("op3 = %d\n",get_last_tmp_addr());
-    rmv_symb_tmp_ts(1);
+    //rmv_symb_tmp_ts(2);
 }
 
 
 void add_cop(int addr) {
     add_instruc2(COP, addr, get_last_tmp_addr());
-    rmv_symb_tmp_ts(1);
+    //rmv_symb_tmp_ts(1);
+}
+
+void add_cop_bis(int to, int from ) {
+    add_instruc2(COP, to, from);
+    //rmv_symb_tmp_ts(1);
 }
 
 int add_jump(Operateur op, int expr1){

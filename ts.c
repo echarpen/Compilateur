@@ -27,23 +27,17 @@ int global_offset = 0;
  * @param S
  * @return int
  */
-int add_symb_var_ts(char nom[16], int isInit, TypeTS type)
+void add_symb_var_ts(char nom[16], int isInit, TypeTS type)
 {
 
     // Vérifier si le symbole est déjà déclaré
     for (int i = 0; i < indexCst; i++)
     {
         if (strcmp(TS[i].nom, nom) == 0)
-        {
-            if (TS[i].isInit == 0){
-                TS[i].isInit = 1;
-                TS[indexCst].scope = global_scope;
-                return 1;
-            } else {
+        {}
+        else {
                 fprintf(stderr, "Erreur add_symb_var_ts : Le symbole '%s' est déjà déclaré dans ce scope\n", nom);
-            return 0; // Retourne 0 pour indiquer une erreur
             }
-        }
     }
 
     // Ajouter le symbole à la table des symboles
@@ -56,12 +50,10 @@ int add_symb_var_ts(char nom[16], int isInit, TypeTS type)
         TS[indexCst].type = type;
         TS[indexCst].scope = global_scope;
         indexCst++;
-        return 1; // Retourne 1 pour indiquer une insertion réussie
     }
     else
     {
         fprintf(stderr, "Erreur : La table des symboles est pleine\n");
-        return 0; // Retourne 0 pour indiquer une erreur
     }
 }
 
@@ -72,23 +64,21 @@ int add_symb_var_ts(char nom[16], int isInit, TypeTS type)
  * @param type 
  * @return int 
  */
-int add_symb_tmp_ts()
+void add_symb_tmp_ts()
 {
     //Si il reste des emplacements pour les variables temporaires
     if (indexTmp > indexCst)
     {
-        TS[indexCst].isInit = 0;
-        TS[indexCst].offset = global_offset;
+        TS[indexTmp].isInit = 0;
+        TS[indexTmp].offset = global_offset;
         global_offset++;
-        TS[indexCst].type = INT;
-        TS[indexCst].scope = global_scope;
+        TS[indexTmp].type = INT;
+        TS[indexTmp].scope = global_scope;
         indexTmp--;
-        return 1; // Retourne 1 pour indiquer une insertion réussie
     }
     else
     {
         fprintf(stderr, "Erreur add_symb_tmp_ts : La table des symboles temporaires est pleine\n");
-        return 0; // Retourne 0 pour indiquer une erreur
     }
 
 }
@@ -98,50 +88,48 @@ int add_symb_tmp_ts()
  *
  * @param scope
  */
-int rmv_symb_ts() // pop le dernier symbole
+void rmv_symb_ts() // pop le dernier symbole
 {
     if (indexCst > 0)
     {
         indexCst--;
-        return 1;
     }
     else
     {
         fprintf(stderr, "Erreur rmv_symb_ts : La table des symboles est vide\n");
-        return 0; // Retourne 0 pour indiquer une erreur
     }
 }
 
-int rmv_symb_tmp_ts(int combien)
+void rmv_symb_tmp_ts(int combien)
 {
     if (combien == 1)
     {
-        if (indexTmp == TS_SIZE-1)
+        if (indexTmp >= TS_SIZE-1)
         {
             fprintf(stderr, "Erreur rmv_symb_tmp_ts : La table des symboles est vide, rien à rmv\n");
-            return 0; // Retourne 0 pour indiquer une erreur
         }
         else 
         {
             indexTmp++;
-            return 1;
         }
     }
     else if (combien == 2)
     {
-        if (indexTmp == TS_SIZE-2)
+        if (indexTmp >= TS_SIZE-2)
         {
             fprintf(stderr, "Erreur rmv_symb_tmp_ts : Il n'y a pas deux var temp à suppriner dans la table des symboles\n");
-            return 0; // Retourne 0 pour indiquer une erreur
         }
         else 
         {
             indexTmp++;
             indexTmp++;
-            return 1;
         }
     }
-    else { return -1; }
+}
+
+void ts_init(char nom[16]) {
+    int ind = get_addr_var_ts(nom) ; 
+    TS[ind].isInit = 1 ;
 }
 
 // RECUP INFO
@@ -191,7 +179,7 @@ int get_last_tmp_addr() {
         return 0; // Retourne 0 pour indiquer une erreur
     }
     else {
-        return TS[indexTmp+1].offset;
+        return TS[(indexTmp+1)].offset;
     }
 
 }
@@ -203,7 +191,7 @@ int get_second_to_last_tmp_addr() {
         return 0; // Retourne 0 pour indiquer une erreur
     }
     else {
-        return TS[indexTmp+2].offset;
+        return TS[(indexTmp+2)].offset;
     }
 
 }
