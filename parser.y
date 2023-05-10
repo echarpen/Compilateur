@@ -26,9 +26,9 @@ int line;
 
 %%
 
-Program :  {printf("Je rentre dans Program \n");} Function tVOID tMAIN tLPAR tVOID tRPAR Body ;
+Program :  {printf("Je rentre dans Program \n");} Function tVOID tMAIN tLPAR tVOID tRPAR Body {asm_save_table();} ;
 
-Function : {printf("Je rentre dans Fct \n");} tINT tID tLPAR ArgList tRPAR Body ;
+Function : {printf("Je rentre dans Fct \n");} tINT tID tLPAR ArgList tRPAR Body {asm_save_table();}; //enlever apres test save table
 
 ArgList : ArgListNext ;
         | %empty ;
@@ -83,10 +83,11 @@ DecNext : tID tCOMMA DecNext {if (symb_in_ts($1)){
              fprintf(stderr,"Erreur \n");
                 return 1;
             } else {
-                  add_symb_var_ts($1,1,INT);print_TS_cst();
-                  add_cop_bis(get_addr_var_ts($1), $3);   print_tab_asm();
+                  rmv_symb_tmp_ts(1);
+                  add_symb_var_ts($1,1,INT);
+                  print_TS_cst();
+                  print_tab_asm();
                   //add_cop(get_addr_var_ts($1)); 
-                  //J'EN SUIS LA
             }}
             
         | tID tASSIGN  {
@@ -100,8 +101,9 @@ DecNext : tID tCOMMA DecNext {if (symb_in_ts($1)){
 //AFFECTATION a = ...
 Affectation : tID tASSIGN Arith_Expr tSEMI {
                   if (symb_in_ts($1)){
+                        rmv_symb_tmp_ts(1);
                        ts_init($1); print_TS_cst();
-                         add_cop_bis(get_addr_var_ts($1), $3);  print_tab_asm();
+                        add_cop_bis(get_addr_var_ts($1), $3);  print_tab_asm();
                   } else {
                         fprintf(stderr,"Erreur la variable n'est pas déclarée \n");
                   } };
@@ -110,18 +112,18 @@ Affectation : tID tASSIGN Arith_Expr tSEMI {
             
 
 
-LoopIF : tIF {printf("Je rentre dans if \n");} tLPAR Condition tRPAR 
+LoopIF : tIF tLPAR Condition tRPAR 
       {
             increase_scope_ts();
-            line = add_jump(JMF,0); 
+            line = add_jump(JMF,$3,0); 
             printf("Ajout JMF"); print_tab_asm();
       } 
       Body 
       { 
             int nb = get_last_line_asm();
-            patch(line,nb+2); 
+            patch_JMF(line,nb+2); 
             printf("Apres patch JMF"); print_tab_asm();
-            line = add_jump(JMP,0); 
+            line = add_jump(JMP,get_last_line_asm()+2,-1); 
             printf("Ajout JMP"); print_tab_asm();
             decrease_scope_ts();
       }
@@ -130,24 +132,25 @@ LoopIF : tIF {printf("Je rentre dans if \n");} tLPAR Condition tRPAR
 IfNext : tELSE {increase_scope_ts();} Body 
       {
             int nb = get_last_line_asm(); 
-            patch(line,nb+1);
+            patch_JMP(line,nb+1);
             printf("Apres patch JMP"); print_tab_asm();
             decrease_scope_ts();
       }
       | %empty ;
 
 
-LoopWHILE : tWHILE {printf("Je rentre dans while \n");} tLPAR  Condition tRPAR 
+LoopWHILE : tWHILE tLPAR  Condition tRPAR 
       {
-            line = add_jump(JMF,0); 
+            increase_scope_ts();
+            line = add_jump(JMF,$3,0); 
             printf("Ajout JMF"); print_tab_asm();
       } 
       Body 
       { 
             int nb = get_last_line_asm();
-            patch(line,nb+2); 
+            patch_JMF(line,nb+2); 
             printf("Apres patch JMF"); print_tab_asm();
-            line = add_jump(JMP,0); 
+            line = add_jump(JMP,get_last_line_asm()+2,-1); 
             printf("Ajout JMP"); print_tab_asm();
       }
 ; 
@@ -159,33 +162,31 @@ Arith_Expr : Factor {
            | Arith_Expr tADD Factor {
            // on genere la fct assembleur correspondante add @res @op1 @op2, on recup les operandes avec la ram, @res variable tempo
                 printf("ADD\n");
-                add_symb_tmp_ts(); print_TS_tmp();
+                print_TS_tmp();
                 add_arithm(ADD);
                 $$ = get_last_tmp_addr();
-                rmv_symb_tmp_ts(1);
+                //rmv_symb_tmp_ts(1);
                 print_tab_asm();}
            | Arith_Expr tSUB Factor{
-              printf("SUB\n");
-                add_symb_tmp_ts();  print_TS_tmp();
+                printf("SUB\n");
+                print_TS_tmp();
                 add_arithm(SUB);
                 $$ = get_last_tmp_addr();
-                rmv_symb_tmp_ts(1);
+                //rmv_symb_tmp_ts(1);
                 print_tab_asm();}
             
            //mettre actions simples, printf pour verifier que grammaire est bonne, printf ensuite transforme en fprintf des instructions en asm, il nous faut recuper l @ dans la ts
 
-Factor : Term 
+Factor : Term { $$ = $1; }
        | Factor tMUL Term {
-                add_symb_tmp_ts();  print_TS_tmp();
+                print_TS_tmp();
                 add_arithm(MUL);
                 $$ = get_last_tmp_addr();
-                rmv_symb_tmp_ts(1);
                 print_tab_asm();}
        | Factor tDIV Term {
-                add_symb_tmp_ts();  print_TS_tmp();
+                print_TS_tmp();
                 add_arithm(DIV);
                 $$ = get_last_tmp_addr();
-                rmv_symb_tmp_ts(1);
                 print_tab_asm();};
 
 Term : tNB {
@@ -195,57 +196,70 @@ Term : tNB {
         $$ = get_last_tmp_addr();
         }
      | tID  {
-            printf("tID\n");
+        printf("tID\n");
         add_symb_tmp_ts();  print_TS_tmp();
         add_instruc2(COP, get_last_tmp_addr(), get_addr_var_ts($1)); print_tab_asm();
-        $$ = get_addr_var_ts($1);
+        $$ = get_last_tmp_addr();
         }
-     | tLPAR Arith_Expr tRPAR;
+     | tLPAR Arith_Expr tRPAR
+      { $$ = $2;  }
+     ;
 
 
 Condition : Bool_Expr  {$$ = $1;}
           | Bool_Expr tAND Bool_Expr {
              printf("AND\n");
+             rmv_symb_tmp_ts(1);
+            add_symb_tmp_ts();  print_TS_tmp();
                 add_arithm(AND);
                 print_tab_asm();
-                add_symb_tmp_ts();  print_TS_tmp();
+                //add_symb_tmp_ts();  print_TS_tmp();
                  $$ = get_last_tmp_addr();
             
           }
           | Bool_Expr tNOT Bool_Expr 
           | Bool_Expr tOR Bool_Expr { 
             printf("OR\n");
+            rmv_symb_tmp_ts(1);
+           add_symb_tmp_ts();  print_TS_tmp();
                 add_arithm(OR);
                 print_tab_asm();
-                add_symb_tmp_ts();  print_TS_tmp();
+                //add_symb_tmp_ts();  print_TS_tmp();
                   $$ = get_last_tmp_addr();
           };
 
-Bool_Expr : tTRUE 
-          | tFALSE 
+Bool_Expr : tTRUE {$$=1;}
+          | tFALSE {$$=0;}
           | Arith_Expr tLT Arith_Expr{
+            rmv_symb_tmp_ts(1);
                   printf("INF\n");
+                  
+                  add_symb_tmp_ts();  print_TS_tmp();
                 add_arithm(INF);
                 $$ = get_last_tmp_addr();
                 print_tab_asm();
-                add_symb_tmp_ts();  print_TS_tmp();
+               
           }
           | Arith_Expr tGT Arith_Expr {
+            rmv_symb_tmp_ts(1);
             printf("SUP\n");
+            add_symb_tmp_ts();  print_TS_tmp();
                 add_arithm(SUP);
                 $$ = get_last_tmp_addr();
                 print_tab_asm();
-                add_symb_tmp_ts();  print_TS_tmp();
+                //add_symb_tmp_ts();  print_TS_tmp();
           }
           | Arith_Expr tGE Arith_Expr
           | Arith_Expr tLE Arith_Expr
           | Arith_Expr tNE Arith_Expr
           | Arith_Expr tEQ Arith_Expr {
+            rmv_symb_tmp_ts(1);
             printf("EQU\n");
+            add_symb_tmp_ts();  print_TS_tmp();
                 add_arithm(EQU);
                 $$ = get_last_tmp_addr();
                 print_tab_asm();
-                add_symb_tmp_ts();  print_TS_tmp();
+                //add_symb_tmp_ts();  print_TS_tmp();
           }; 
 
 
@@ -267,12 +281,4 @@ void yyerror(const char *msg) {
 int main(void) {
       deleteTS();
       yyparse();
-    FILE* ASM = fopen("./table_asm.txt", "w+");
-    if(!ASM)  {
-        perror("fopen");
-        exit(EXIT_FAILURE);
-    }
-    asm_save_table(ASM);
-    fclose(ASM); 
-
 }

@@ -1,8 +1,9 @@
-int compute(int a, int d) {
-    int b, c = a + d * 5;
+int compute() {
+    int a, d ;
+    int b, c = a + d * 555;
     b = a;
     while (c > 0) {
-      b = b + a * 4;
+      b = b + a * 444;
     }
     return b;
 }
@@ -10,11 +11,35 @@ int compute(int a, int d) {
 
 void main(void) {
   int a;
-  if (a == 3) {
+  if (a == 333) {
     print(a);
   } else {
-    int b = compute(a, 2 * a);
+    int b = compute(a, 222 * a);
     print(b);
   }
 }
 
+
+
+
+
+
+
+int f() {
+  int a = 444;
+  if (a < 111){
+    int b = 888;
+  }
+  else {
+    b = 555;
+  }
+}
+
+
+
+int f() {
+  int a = 444;
+  while (a < 446){
+    a = a + 1;
+  }
+}

@@ -9,7 +9,7 @@
 
 SYMBOLE TS[TS_SIZE];
 int indexCst = 0;
-int indexTmp = 199;
+int indexTmp = TS_SIZE - 1;
 int global_scope = 0;
 int global_offset = 0;
 
@@ -111,6 +111,7 @@ void rmv_symb_tmp_ts(int combien)
         else 
         {
             indexTmp++;
+            global_offset--;
         }
     }
     else if (combien == 2)
@@ -123,6 +124,8 @@ void rmv_symb_tmp_ts(int combien)
         {
             indexTmp++;
             indexTmp++;
+            global_offset--;
+            global_offset--;
         }
     }
 }
@@ -238,7 +241,7 @@ void increase_scope_ts(){
 
 void deleteTS(){
     indexCst = 0;
-    indexTmp = 199;
+    indexTmp = TS_SIZE - 1;
 }
 
 char* TypeTS_to_string(TypeTS t){
@@ -271,7 +274,7 @@ void print_TS_cst()
 void print_TS_tmp()
 {
     printf("-----------------------------------------\n");
-    printf("   TABLE DES VAR TEMPORAIRES \n");
+    printf("   TABLE DES VAR TEMPORAIRES %d\n", indexTmp);
     printf("-----------------------------------------\n");
     printf("Nom\t| isInit\t| Type\t| Offset\t| Profondeur\n");
     for (int i = indexTmp; i < TS_SIZE; i++)

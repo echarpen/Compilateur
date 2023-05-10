@@ -29,8 +29,14 @@ void add_instruc1(Operateur op, int expr1){
 
 void add_arithm(Operateur op){
     add_instruc3(op,get_second_to_last_tmp_addr(),get_second_to_last_tmp_addr(),get_last_tmp_addr());
-    //rmv_symb_tmp_ts(2);
+    rmv_symb_tmp_ts(1);
 }
+
+// int add_boolean(Operateur op){
+//     add_instruc3(op,get_second_to_last_tmp_addr(),get_second_to_last_tmp_addr(),get_last_tmp_addr());
+//     //rmv_symb_tmp_ts(2);
+//     return (get_second_to_last_tmp_addr());
+// }
 
 
 void add_cop(int addr) {
@@ -43,27 +49,42 @@ void add_cop_bis(int to, int from ) {
     //rmv_symb_tmp_ts(1);
 }
 
-int add_jump(Operateur op, int expr1){
-    Instruction instr = {index_asm, op, expr1, -1, -1};
-    ASM[index_asm] = instr ;
-    index_asm++;
+int add_jump(Operateur op, int expr1, int expr2){
+    if (expr2 ==-1){
+        add_instruc1(op,expr1);
+    }
+    else {
+        add_instruc2(op, expr1, expr2);
+    }
     return index_asm-1; 
 }
 
 // AUTRES
 
-void patch(int from, int to) { 
-    ASM[from].expr1 = to ;
+void patch_JMF(int from, int new ) { 
+    ASM[from].expr2 = new ;
 }
+
+void patch_JMP(int from, int new ) { 
+    ASM[from].expr1 = new ;
+}
+
 
 int get_last_line_asm(){
     return index_asm-1;
 }
 
-void asm_save_table(FILE* input) {
+void asm_save_table() {
+
+    FILE* asm_file = fopen("./table_asm.txt", "w+");
+    if(!asm_file)  {
+        perror("fopen");
+        exit(EXIT_FAILURE);
+    }
+
     int i=0;
     while(i<index_asm) {
-        fprintf(input, 
+        fprintf(asm_file, 
             "%s %d %d %d \n", 
             Operateur_to_string(ASM[i].op), 
             ASM[i].expr1, 
@@ -71,6 +92,9 @@ void asm_save_table(FILE* input) {
             ASM[i].expr3);
         i++;
     }
+
+
+    fclose(asm_file); 
 }
 
 char* Operateur_to_string(Operateur o){
