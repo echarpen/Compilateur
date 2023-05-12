@@ -28,7 +28,7 @@ int line;
 
 Program :  {printf("Je rentre dans Program \n");} Function tVOID tMAIN tLPAR tVOID tRPAR Body {asm_save_table();} ;
 
-Function : {printf("Je rentre dans Fct \n");} tINT tID tLPAR ArgList tRPAR Body {asm_save_table();}; //enlever apres test save table
+Function : {printf("Je rentre dans Fct \n");} tINT tID tLPAR ArgList tRPAR Body {}; //enlever apres test save table
 
 ArgList : ArgListNext ;
         | %empty ;

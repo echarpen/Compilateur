@@ -24,7 +24,6 @@ void main(void) {
 
 
 
-
 int f() {
   int a = 444;
   if (a < 111){
@@ -41,5 +40,26 @@ int f() {
   int a = 444;
   while (a < 446){
     a = a + 1;
+  }
+}
+
+
+
+
+
+
+int f() {
+int a;
+int b, c;
+b = 6;
+c=8;
+a = b + c * 2;
+}
+
+
+int f() {
+  int a = 8;
+  if (a ==) {
+  a = 0;
   }
 }

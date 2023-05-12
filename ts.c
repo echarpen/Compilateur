@@ -34,10 +34,10 @@ void add_symb_var_ts(char nom[16], int isInit, TypeTS type)
     for (int i = 0; i < indexCst; i++)
     {
         if (strcmp(TS[i].nom, nom) == 0)
-        {}
-        else {
-                fprintf(stderr, "Erreur add_symb_var_ts : Le symbole '%s' est déjà déclaré dans ce scope\n", nom);
-            }
+        {
+            fprintf(stderr, "Erreur add_symb_var_ts : Le symbole '%s' est déjà déclaré dans ce scope\n", nom);
+
+        }
     }
 
     // Ajouter le symbole à la table des symboles
