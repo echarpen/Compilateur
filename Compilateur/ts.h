@@ -7,7 +7,7 @@
 
 #define TS_SIZE 200
 
-typedef enum {INT, CHAR} TypeTS ;
+typedef enum {INT, CHAR} TypeTS ; //enlever char ?
 
 typedef struct
 {

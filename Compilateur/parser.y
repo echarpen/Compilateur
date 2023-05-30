@@ -152,6 +152,7 @@ LoopWHILE : tWHILE tLPAR  Condition tRPAR
             printf("Apres patch JMF"); print_tab_asm();
             line = add_jump(JMP,get_last_line_asm()+2,-1); 
             printf("Ajout JMP"); print_tab_asm();
+            decrease_scope_ts();
       }
 ; 
 

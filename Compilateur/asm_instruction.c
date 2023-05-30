@@ -74,13 +74,7 @@ int get_last_line_asm(){
     return index_asm-1;
 }
 
-void asm_save_table() {
-
-    FILE* asm_file = fopen("./table_asm.txt", "w+");
-    if(!asm_file)  {
-        perror("fopen");
-        exit(EXIT_FAILURE);
-    }
+void asm_save_table(FILE* asm_file) {
 
     int i=0;
     while(i<index_asm) {
