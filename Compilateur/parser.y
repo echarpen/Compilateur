@@ -267,7 +267,7 @@ Bool_Expr : tTRUE {$$=1;}
 
 
 
-Print : tPRINTF tLPAR Expr tRPAR tSEMI ; 
+Print : tPRINTF tLPAR Expr tRPAR {add_instruc1(PRI,get_addr_var_ts($3))} tSEMI ; 
 
 Return : tRETURN Expr tSEMI ; 
 
@@ -279,4 +279,10 @@ Expr : Arith_Expr
 void yyerror(const char *msg) {
   fprintf(stderr, "error: %s\n", msg);
   exit(1);
+}
+
+int main(){
+deleteTS();
+    yyparse();
+
 }

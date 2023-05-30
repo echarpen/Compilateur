@@ -8,6 +8,7 @@ CFLAGS=-Wall -g
 OBJ=y.tab.o lex.yy.o ts.o asm_instruction.o main.o interpreter.o
 
 all: $(BIN)
+	./test < test.txt
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
