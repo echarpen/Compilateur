@@ -175,7 +175,7 @@ my_mem_donnees : mem_donnees port map(
         entree => MD_entree, 
         RW => MD_RW,
         CLK => CLK_cd, 
-        RST => RST_cd,
+        RST => BR_RST, -- faire un rst global 
         sortie => MD_sortie);
         
 my_mem_instructions : mem_instructions port map(
@@ -199,7 +199,7 @@ BR_B_adr <= c1_out(3 downto 0);
 
 op2_in <= op1_out;
 a2_in <= a1_out;
-b2_in <= BR_QA when (op1_out=ADD or op1_out=COP or op1_out=MUL or op1_out=SOU) else b1_out; --mux
+b2_in <= BR_QA when (op1_out=ADD or op1_out=COP or op1_out=MUL or op1_out=SOU or op1_out=STORE) else b1_out; --mux
 c2_in <= BR_QB; 
 
 
@@ -214,20 +214,20 @@ b3_in <= ALU_S when (op2_out=ADD or op2_out=MUL or op2_out=SOU) else b2_out;
 
  
 -- Etage 4
---MD_adr <= a3_out when (MUX4(to_integer(unsigned(op3_out)))='1') else b3_out; 
+MD_adr <= a3_out when (op3_out=STORE) else b3_out; 
 MD_entree <= b3_out; 
---MD_RW <= LC2(to_integer(unsigned(op3_out)));
+MD_RW <= '1' when (op3_out=STORE) else '0';
 
 op4_in <= op3_out;
 a4_in <= a3_out;
---b4_in <= MD_sortie when (MUX3(to_integer(unsigned(op3_out)))='1') else b3_out; 
-b4_in <= b3_out;
+b4_in <= MD_sortie when (op3_out=LOAD) else b3_out; 
+
     
     
 -- Etage 5
 
 BR_W_adr <= a4_out(3 downto 0);
-BR_W <= '1' when (op4_out=ADD or op4_out=AFC or op4_out=COP or op4_out=MUL or op4_out=SOU) else '0';
+BR_W <= '1' when (op4_out=ADD or op4_out=AFC or op4_out=COP or op4_out=MUL or op4_out=SOU or op4_out=LOAD) else '0';
 BR_DATA <= b4_out;
 
 

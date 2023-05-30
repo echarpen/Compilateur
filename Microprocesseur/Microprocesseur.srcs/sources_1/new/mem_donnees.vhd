@@ -58,8 +58,7 @@ process
                 elsif (RW = '1') then 
                     memoire_donnees(to_integer(unsigned(adr))) <= entree ;
             end if ;
-       sortie <=  memoire_donnees(to_integer(unsigned(adr)));
     end process ;
-
+sortie <=  memoire_donnees(to_integer(unsigned(adr)));
 
 end Behavioral;
