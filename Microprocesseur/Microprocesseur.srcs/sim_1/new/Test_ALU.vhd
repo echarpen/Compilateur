@@ -49,7 +49,7 @@ Port ( A : in STD_LOGIC_VECTOR (7 downto 0);
 end component; 
 
 signal A_test : STD_LOGIC_VECTOR (7 downto 0) := "00000001";
-signal B_test : STD_LOGIC_VECTOR (7 downto 0) := "00000000"; 
+signal B_test : STD_LOGIC_VECTOR (7 downto 0) := "00000100"; 
 signal Ctrl_Alu_test : STD_LOGIC_VECTOR (2 downto 0) := (others => '0') ; 
 
 signal S_test : STD_LOGIC_VECTOR (7 downto 0);

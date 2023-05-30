@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log ALU.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ALU.tcl
+    with args -log chemin_donnees.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source chemin_donnees.tcl
 
 
 ****** Vivado v2018.2 (64-bit)
@@ -8,34 +8,181 @@
   **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
-source ALU.tcl -notrace
-Command: synth_design -top ALU -part xc7a35tcpg236-1
+source chemin_donnees.tcl -notrace
+Command: synth_design -top chemin_donnees -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7639 
+INFO: Helper process launched with PID 114494 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1255.273 ; gain = 83.699 ; free physical = 57979 ; free virtual = 69913
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1255.277 ; gain = 83.809 ; free physical = 112644 ; free virtual = 139059
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'ALU' [/home/cdespaux/Bureau/ProjetSysInfo/microprocesseur/microprocesseur.srcs/sources_1/new/ALU.vhd:47]
-INFO: [Synth 8-256] done synthesizing module 'ALU' (1#1) [/home/cdespaux/Bureau/ProjetSysInfo/microprocesseur/microprocesseur.srcs/sources_1/new/ALU.vhd:47]
+INFO: [Synth 8-638] synthesizing module 'chemin_donnees' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:41]
+INFO: [Synth 8-3491] module 'ALU' declared at '/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/ALU.vhd:36' bound to instance 'my_alu' of component 'ALU' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:148]
+INFO: [Synth 8-638] synthesizing module 'ALU' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/ALU.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'ALU' (1#1) [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/ALU.vhd:47]
+INFO: [Synth 8-3491] module 'banc_registres' declared at '/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:36' bound to instance 'my_banc_registres' of component 'banc_registres' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:158]
+INFO: [Synth 8-638] synthesizing module 'banc_registres' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:48]
+INFO: [Synth 8-256] done synthesizing module 'banc_registres' (2#1) [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:48]
+INFO: [Synth 8-3491] module 'mem_donnees' declared at '/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_donnees.vhd:34' bound to instance 'my_mem_donnees' of component 'mem_donnees' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:169]
+INFO: [Synth 8-638] synthesizing module 'mem_donnees' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_donnees.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'mem_donnees' (3#1) [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_donnees.vhd:43]
+INFO: [Synth 8-3491] module 'mem_instructions' declared at '/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd:34' bound to instance 'my_mem_instructions' of component 'mem_instructions' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:177]
+INFO: [Synth 8-638] synthesizing module 'mem_instructions' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'mem_instructions' (4#1) [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd:40]
+WARNING: [Synth 8-6014] Unused sequential element c2_out_reg was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:233]
+WARNING: [Synth 8-6014] Unused sequential element c1_out_reg was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:239]
+WARNING: [Synth 8-3936] Found unconnected internal register 'a4_out_reg' and it is trimmed from '8' to '4' bits. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:209]
+WARNING: [Synth 8-3936] Found unconnected internal register 'a3_out_reg' and it is trimmed from '8' to '4' bits. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:205]
+WARNING: [Synth 8-3936] Found unconnected internal register 'a2_out_reg' and it is trimmed from '8' to '4' bits. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:200]
+WARNING: [Synth 8-3936] Found unconnected internal register 'a1_out_reg' and it is trimmed from '8' to '4' bits. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:194]
+WARNING: [Synth 8-3848] Net sortie in module/entity chemin_donnees does not have driver. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:38]
+WARNING: [Synth 8-3848] Net ALU_A in module/entity chemin_donnees does not have driver. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:83]
+WARNING: [Synth 8-3848] Net ALU_B in module/entity chemin_donnees does not have driver. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:84]
+WARNING: [Synth 8-3848] Net ALU_Ctrl in module/entity chemin_donnees does not have driver. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:85]
+INFO: [Synth 8-256] done synthesizing module 'chemin_donnees' (5#1) [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:41]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[7]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[6]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[5]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[4]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[3]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[2]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[1]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[0]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1299.898 ; gain = 128.324 ; free physical = 57988 ; free virtual = 69924
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1311.902 ; gain = 140.434 ; free physical = 112625 ; free virtual = 139042
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1299.898 ; gain = 128.324 ; free physical = 57987 ; free virtual = 69924
+Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1311.902 ; gain = 140.434 ; free physical = 112627 ; free virtual = 139044
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
----------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1307.902 ; gain = 136.328 ; free physical = 57987 ; free virtual = 69924
 ---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1319.906 ; gain = 148.438 ; free physical = 112626 ; free virtual = 139043
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1315.910 ; gain = 144.336 ; free physical = 57987 ; free virtual = 69924
+INFO: [Synth 8-5544] ROM "registers_reg[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[1]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[2]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[3]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[4]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[5]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[6]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[7]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[8]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[9]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[10]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[11]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[12]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[13]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[14]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "registers_reg[15]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[15]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[16]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[17]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[18]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[19]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[20]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[21]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[22]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[23]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[24]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[25]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[26]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[27]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[28]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[29]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[30]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[31]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[32]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[33]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[34]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[35]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[36]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[37]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[38]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[39]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[40]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[41]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[42]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[43]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[44]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[45]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[46]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[47]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[48]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[49]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[50]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[51]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[52]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[53]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[54]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[55]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[56]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[57]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[58]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[59]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[60]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[61]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[62]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[63]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[64]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[65]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[66]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[67]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[68]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[69]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[70]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[71]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[72]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[73]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[74]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[75]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[76]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[77]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[78]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[79]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[80]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[81]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[82]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[83]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[84]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[85]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[86]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[87]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[88]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[89]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[90]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[91]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[92]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[93]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[94]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[95]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[96]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[97]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[98]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "memoire_donnees_reg[99]" won't be mapped to RAM because it is too sparse
+INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1335.922 ; gain = 164.453 ; free physical = 112574 ; free virtual = 138994
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -51,9 +198,17 @@ Detailed RTL Component Info :
 +---Adders : 
 	   3 Input     16 Bit       Adders := 1     
 	   2 Input      9 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                8 Bit    Registers := 282   
+	                4 Bit    Registers := 4     
 +---Muxes : 
+	 257 Input     32 Bit        Muxes := 1     
 	   4 Input     16 Bit        Muxes := 1     
 	   2 Input     16 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 272   
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -61,6 +216,13 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
+Module chemin_donnees 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 9     
+	                4 Bit    Registers := 4     
 Module ALU 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -69,6 +231,25 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   4 Input     16 Bit        Muxes := 1     
 	   2 Input     16 Bit        Muxes := 1     
+Module banc_registres 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 16    
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 16    
+Module mem_donnees 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 257   
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 256   
+Module mem_instructions 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	 257 Input     32 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -86,8 +267,137 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[0] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[1] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[2] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[3] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[4] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[5] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[6] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[7] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[8] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[9] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[10] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[11] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[12] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[13] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[14] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[15] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element b1_out_reg was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:195]
+WARNING: [Synth 8-6014] Unused sequential element b2_out_reg was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:201]
+WARNING: [Synth 8-6014] Unused sequential element b3_out_reg was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:206]
+WARNING: [Synth 8-6014] Unused sequential element b4_out_reg was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:211]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[7]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[6]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[5]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[4]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[3]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[2]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[1]
+WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[0]
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[0][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[0][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[0][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[0][4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[0][3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[0][2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[0][1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[0][0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[1][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[1][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[1][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[1][4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[1][3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[1][2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[1][1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[1][0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[2][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[2][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[2][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[2][4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[2][3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[2][2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[2][1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[2][0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[3][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[3][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[3][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[3][4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[3][3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[3][2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[3][1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[3][0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[4][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[4][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[4][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[4][4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[4][3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[4][2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[4][1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[4][0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[5][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[5][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[5][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[5][4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[5][3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[5][2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[5][1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[5][0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[6][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[6][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[6][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[6][4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[6][3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[6][2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[6][1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[6][0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[7][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[7][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[7][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[7][4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[7][3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[7][2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[7][1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[7][0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[8][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[8][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[8][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[8][4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[8][3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[8][2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[8][1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[8][0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[9][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[9][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[9][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[9][4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[9][3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[9][2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[9][1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[9][0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[10][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[10][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[10][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[10][4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[10][3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[10][2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[10][1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[10][0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[11][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[11][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[11][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[11][4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[11][3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[11][2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[11][1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[11][0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[12][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[12][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[12][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[12][4]) is unused and will be removed from module chemin_donnees.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1435.035 ; gain = 263.461 ; free physical = 57791 ; free virtual = 69749
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:31 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112448 ; free virtual = 138885
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -100,7 +410,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1435.035 ; gain = 263.461 ; free physical = 57791 ; free virtual = 69749
+Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:31 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112448 ; free virtual = 138885
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -112,7 +422,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1435.035 ; gain = 263.461 ; free physical = 57791 ; free virtual = 69749
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:31 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112448 ; free virtual = 138885
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -136,7 +446,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1435.035 ; gain = 263.461 ; free physical = 57791 ; free virtual = 69750
+Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -149,7 +459,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1435.035 ; gain = 263.461 ; free physical = 57791 ; free virtual = 69750
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -161,25 +471,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1435.035 ; gain = 263.461 ; free physical = 57791 ; free virtual = 69750
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1435.035 ; gain = 263.461 ; free physical = 57791 ; free virtual = 69750
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1435.035 ; gain = 263.461 ; free physical = 57791 ; free virtual = 69750
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1435.035 ; gain = 263.461 ; free physical = 57791 ; free virtual = 69750
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -192,45 +502,36 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+-------+------+
-|      |Cell   |Count |
-+------+-------+------+
-|1     |CARRY4 |    16|
-|2     |LUT2   |    34|
-|3     |LUT3   |     5|
-|4     |LUT4   |    22|
-|5     |LUT5   |     9|
-|6     |LUT6   |    52|
-|7     |IBUF   |    19|
-|8     |OBUF   |    12|
-+------+-------+------+
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |OBUFT |     8|
++------+------+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |   169|
+|1     |top      |       |     8|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1435.035 ; gain = 263.461 ; free physical = 57791 ; free virtual = 69750
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1435.035 ; gain = 263.461 ; free physical = 57798 ; free virtual = 69756
-Synthesis Optimization Complete : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1435.043 ; gain = 263.461 ; free physical = 57805 ; free virtual = 69764
+Synthesis finished with 0 errors, 0 critical warnings and 2182 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
+Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.016 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 35 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-11 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+139 Infos, 146 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:19 . Memory (MB): peak = 1565.062 ; gain = 405.242 ; free physical = 57751 ; free virtual = 69724
+synth_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:34 . Memory (MB): peak = 1503.031 ; gain = 343.207 ; free physical = 112422 ; free virtual = 138874
 WARNING: [Constraints 18-5210] No constraint will be written out.
-INFO: [Common 17-1381] The checkpoint '/home/cdespaux/Bureau/ProjetSysInfo/microprocesseur/microprocesseur.runs/synth_1/ALU.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file ALU_utilization_synth.rpt -pb ALU_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.10 . Memory (MB): peak = 1589.074 ; gain = 0.000 ; free physical = 57742 ; free virtual = 69715
-INFO: [Common 17-206] Exiting Vivado at Mon May 15 12:52:37 2023...
+INFO: [Common 17-1381] The checkpoint '/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.runs/synth_1/chemin_donnees.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file chemin_donnees_utilization_synth.rpt -pb chemin_donnees_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.15 . Memory (MB): peak = 1527.043 ; gain = 0.000 ; free physical = 112423 ; free virtual = 138876
+INFO: [Common 17-206] Exiting Vivado at Sun May 28 11:51:04 2023...

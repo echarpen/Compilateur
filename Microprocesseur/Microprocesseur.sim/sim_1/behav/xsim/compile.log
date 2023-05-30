@@ -32,3 +32,83 @@ INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/mic
 INFO: [VRFC 10-307] analyzing entity test_mem_instructions
 INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/microprocesseur/microprocesseur.srcs/sources_1/new/mem_instructions.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity mem_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/ALU.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity banc_registres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sim_1/new/test_chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sim_1/new/test_chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sim_1/new/test_chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sim_1/new/Test_ALU.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Test_ALU
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sim_1/new/test_banc_registres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_banc_registres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
