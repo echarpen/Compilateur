@@ -5,7 +5,7 @@ BIN=test
 CC=gcc
 CFLAGS=-Wall -g
 
-OBJ=y.tab.o lex.yy.o ts.o asm_instruction.o
+OBJ=y.tab.o lex.yy.o ts.o asm_instruction.o main.o interpreter.o
 
 all: $(BIN)
 

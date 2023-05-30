@@ -115,6 +115,7 @@ Affectation : tID tASSIGN Arith_Expr tSEMI {
 LoopIF : tIF tLPAR Condition tRPAR 
       {
             increase_scope_ts();
+            printf("Valeur condition if  :  %d",$3); 
             line = add_jump(JMF,$3,0); 
             printf("Ajout JMF"); print_tab_asm();
       } 
@@ -207,7 +208,8 @@ Term : tNB {
      ;
 
 
-Condition : Bool_Expr  {$$ = $1;}
+Condition : tID {$$=get_addr_var_ts($1);}
+       | Bool_Expr  {$$ = $1;}
           | Bool_Expr tAND Bool_Expr {
              printf("AND\n");
              rmv_symb_tmp_ts(1);
@@ -277,9 +279,4 @@ Expr : Arith_Expr
 void yyerror(const char *msg) {
   fprintf(stderr, "error: %s\n", msg);
   exit(1);
-}
-
-int main(void) {
-      deleteTS();
-      yyparse();
 }

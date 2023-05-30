@@ -8,7 +8,7 @@ int MEMORY[MEM_SIZE];
 int ligne = 0;
 
 
-void interprete(int nb_instr) {
+void interpret(int nb_instr) {
 
     print_tab_asm();
 
@@ -34,6 +34,12 @@ void interprete(int nb_instr) {
             // MUL
             case MUL :
                 MEMORY[exp1]=MEMORY[exp2]*MEMORY[exp3];
+                ligne++;
+                break;
+
+            // DIV
+            case DIV :
+                MEMORY[exp1]=(int)(MEMORY[exp2]/MEMORY[exp3]);
                 ligne++;
                 break;
 

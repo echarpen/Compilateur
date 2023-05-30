@@ -23,7 +23,7 @@ int main(int argc, char **argv){
     fclose(ASM_file); 
 
     printf("-- INTERPRETOR\n");
-    start_interpreter(get_last_line_asm());
+    interpret(get_last_line_asm());
 
 
     return 0;

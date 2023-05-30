@@ -3,5 +3,6 @@
 #include <string.h>
 #include "asm_instruction.h"
 
-#define ASM_SIZE 1024
 #define MEM_SIZE 500
+
+void interpret(int nb_instr) ;
