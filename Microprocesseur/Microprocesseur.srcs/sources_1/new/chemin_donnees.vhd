@@ -108,7 +108,6 @@ signal BR_W : STD_LOGIC := '0' ;
 signal BR_Data : STD_LOGIC_VECTOR (7 downto 0) := (others => '0') ;
 signal BR_QA : STD_LOGIC_VECTOR (7 downto 0);
 signal BR_QB : STD_LOGIC_VECTOR (7 downto 0);
-signal BR_RST : STD_LOGIC := '1';
 
 signal MD_adr : STD_LOGIC_VECTOR (7 downto 0) := (others => '0') ;
 signal MD_entree : STD_LOGIC_VECTOR (7 downto 0) := (others => '0') ;
@@ -144,6 +143,20 @@ signal a4_in, b4_in: STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
 signal op4_out : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
 signal a4_out, b4_out : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
 
+-- Aléas 
+
+signal alea : STD_LOGIC := '0' ;
+signal num_nop : STD_LOGIC_VECTOR(1 downto 0) := "00";
+signal EN_MI : STD_LOGIC := '1';
+
+signal alea_write_3 : STD_LOGIC := '0';
+signal alea_write_data_3 : STD_LOGIC := '0';
+signal alea_write_2 : STD_LOGIC := '0';
+signal alea_write_data_2 : STD_LOGIC := '0';
+
+signal alea_read_1 : STD_LOGIC := '0';
+signal alea_read_data_1 : STD_LOGIC := '0';
+signal alea_read_alu_1 : STD_LOGIC := '0';
 
 
 
@@ -166,7 +179,7 @@ my_banc_registres : banc_registres port map(
         W => BR_W, 
         Data => BR_Data, 
         CLK => CLK_cd,
-        RST => BR_RST,
+        RST => RST_cd,
         QA => BR_QA, 
         QB => BR_QB);
         
@@ -175,7 +188,7 @@ my_mem_donnees : mem_donnees port map(
         entree => MD_entree, 
         RW => MD_RW,
         CLK => CLK_cd, 
-        RST => BR_RST, -- faire un rst global 
+        RST => RST_cd, 
         sortie => MD_sortie);
         
 my_mem_instructions : mem_instructions port map(
@@ -187,10 +200,10 @@ my_mem_instructions : mem_instructions port map(
 MI_adr <= IP_adr; 
 
 -- Etage 1 
-op1_in <= MI_sortie(31 downto 24);
-a1_in <= MI_sortie(23 downto 16);
-b1_in <= MI_sortie(15 downto 8); 
-c1_in <= MI_sortie(7 downto 0); 
+op1_in <= MI_sortie(31 downto 24) when (EN_MI = '1');
+a1_in <= MI_sortie(23 downto 16) when (EN_MI = '1');
+b1_in <= MI_sortie(15 downto 8) when (EN_MI = '1'); 
+c1_in <= MI_sortie(7 downto 0) when (EN_MI = '1'); 
 
 
  -- Etage 2 
@@ -232,16 +245,48 @@ BR_DATA <= b4_out;
 
 
 
+--Alea 
+
+-- Write
+alea_write_3 <= '0' when (op3_in = NOP or op3_in = STORE) else '1';
+alea_write_data_3 <= '1' when (op3_in = STORE) else '0';
+
+alea_write_2 <= '0' when (op2_in = NOP or op2_in = STORE) else '1';
+alea_write_data_2 <= '1' when (op2_in = STORE) else '0';
+
+-- Read
+alea_read_1 <= '0' when (op1_in = LOAD or op1_in = AFC) else '1';
+alea_read_data_1 <= '1' when (op1_in = LOAD) else '0';
+alea_read_alu_1 <= '1' when (op1_in = ADD or op1_in = SOU or op1_in = MUL or op1_in = DIV) else '0';
+
+
+ alea <= '1' 
+           when (
+           --alea_1_2
+               (alea_read_1 = '1' and alea_write_2 = '1' and alea_a2_in=alea_b1_in) or
+               (alea_read_data_1 = '1' and alea_write_data_2 = '1' and alea_a2_in=alea_b1_in) or
+               (alea_read_alu_1 = '1' and alea_a2_in=alea_c1_in) or
+           --alea_1_3
+               (alea_read_1 = '1' and alea_write_3 = '1' and alea_a3_in=alea_b1_in) or
+               (alea_read_data_1 = '1' and alea_write_data_3 = '1' and alea_a3_in=alea_b1_in) or
+               (alea_read_alu_1 = '1' and alea_a3_in=alea_c1_in)
+           )
+           else '0';
+
 -- Séquentiel 
 process (CLK_cd)
 begin 
     if (CLK_cd'Event and CLK_cd='1') then 
     
-        -- etage 1
-            op1_out <= op1_in; 
-            a1_out <= a1_in; 
-            b1_out <= b1_in; 
-            c1_out <= c1_in;
+        if(alea = '1' or (num_nop /= "00" and num_nop /= "11")) then
+            op2_out <= NOP;
+            a2_out <= "00000000";
+            b2_out <= "00000000"; 
+            c2_out <= "00000000";
+            
+            EN_MI <= '0';
+        else
+            num_nop <= "00";
             
             -- Etage 2
             op2_out <= op2_in;
@@ -249,17 +294,29 @@ begin
             b2_out <= b2_in; 
             c2_out <= c2_in;
             
-            -- Etage 3
-            op3_out <= op3_in ;
-            a3_out <= a3_in; 
-            b3_out <= b3_in;
-            
-        -- Etage 4 
-            op4_out <= op4_in;
-            a4_out <= a4_in; 
-            b4_out <= b4_in;
-                                                          
             IP_adr <= IP_adr+1;
+            EN_MI <= '1';
+            
+         end if;
+            
+               
+        -- Etage 1
+         op1_out <= op1_in; 
+         a1_out <= a1_in; 
+         b1_out <= b1_in; 
+         c1_out <= c1_in;
+                     
+        -- Etage 3
+        op3_out <= op3_in ;
+        a3_out <= a3_in; 
+        b3_out <= b3_in;
+        
+        -- Etage 4 
+        op4_out <= op4_in;
+        a4_out <= a4_in; 
+        b4_out <= b4_in;
+                                                      
+        
 
     end if;
 end process;

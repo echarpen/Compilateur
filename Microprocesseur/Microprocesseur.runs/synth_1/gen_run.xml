@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1685267418">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1685454979">
+  <File Type="VDS-TIMING-PB" Name="chemin_donnees_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="chemin_donnees_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="chemin_donnees.dcp"/>
-  <File Type="PA-TCL" Name="chemin_donnees.tcl"/>
-  <File Type="REPORTS-TCL" Name="chemin_donnees_reports.tcl"/>
-  <File Type="RDS-RDS" Name="chemin_donnees.vds"/>
   <File Type="RDS-UTIL-PB" Name="chemin_donnees_utilization_synth.pb"/>
   <File Type="RDS-UTIL" Name="chemin_donnees_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="chemin_donnees_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="chemin_donnees.vds"/>
+  <File Type="REPORTS-TCL" Name="chemin_donnees_reports.tcl"/>
+  <File Type="PA-TCL" Name="chemin_donnees.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/ALU.vhd">

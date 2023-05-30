@@ -2,12 +2,11 @@
 # Webtalk v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Mon May 29 09:57:03 2023
-# Process ID: 75314
+# Start of session at: Tue May 30 10:51:25 2023
+# Process ID: 12921
 # Current directory: /home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.sim/sim_1/behav/xsim
-# Command line: wbtcv -mode batch -source /home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.sim/sim_1/behav/xsim/xsim.dir/Test_ALU_behav/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv -mode batch -source /home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.sim/sim_1/behav/xsim/xsim.dir/test_banc_registres_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: /home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: /home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.sim/sim_1/behav/xsim/webtalk.jou
 #-----------------------------------------------------------
-source /home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.sim/sim_1/behav/xsim/xsim.dir/Test_ALU_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Mon May 29 09:57:04 2023...
+source /home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.sim/sim_1/behav/xsim/xsim.dir/test_banc_registres_behav/webtalk/xsim_webtalk.tcl -notrace

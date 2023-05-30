@@ -14,47 +14,30 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 114494 
+INFO: Helper process launched with PID 8270 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1255.277 ; gain = 83.809 ; free physical = 112644 ; free virtual = 139059
+Starting Synthesize : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1255.266 ; gain = 83.699 ; free physical = 57372 ; free virtual = 69676
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'chemin_donnees' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:41]
-INFO: [Synth 8-3491] module 'ALU' declared at '/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/ALU.vhd:36' bound to instance 'my_alu' of component 'ALU' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:148]
+INFO: [Synth 8-3491] module 'ALU' declared at '/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/ALU.vhd:36' bound to instance 'my_alu' of component 'ALU' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:155]
 INFO: [Synth 8-638] synthesizing module 'ALU' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/ALU.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'ALU' (1#1) [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/ALU.vhd:47]
-INFO: [Synth 8-3491] module 'banc_registres' declared at '/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:36' bound to instance 'my_banc_registres' of component 'banc_registres' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:158]
+INFO: [Synth 8-3491] module 'banc_registres' declared at '/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:36' bound to instance 'my_banc_registres' of component 'banc_registres' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:165]
 INFO: [Synth 8-638] synthesizing module 'banc_registres' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:48]
 INFO: [Synth 8-256] done synthesizing module 'banc_registres' (2#1) [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:48]
-INFO: [Synth 8-3491] module 'mem_donnees' declared at '/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_donnees.vhd:34' bound to instance 'my_mem_donnees' of component 'mem_donnees' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:169]
+INFO: [Synth 8-3491] module 'mem_donnees' declared at '/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_donnees.vhd:34' bound to instance 'my_mem_donnees' of component 'mem_donnees' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:176]
 INFO: [Synth 8-638] synthesizing module 'mem_donnees' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_donnees.vhd:43]
 INFO: [Synth 8-256] done synthesizing module 'mem_donnees' (3#1) [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_donnees.vhd:43]
-INFO: [Synth 8-3491] module 'mem_instructions' declared at '/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd:34' bound to instance 'my_mem_instructions' of component 'mem_instructions' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:177]
+INFO: [Synth 8-3491] module 'mem_instructions' declared at '/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd:34' bound to instance 'my_mem_instructions' of component 'mem_instructions' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:184]
 INFO: [Synth 8-638] synthesizing module 'mem_instructions' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd:40]
 INFO: [Synth 8-256] done synthesizing module 'mem_instructions' (4#1) [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/mem_instructions.vhd:40]
-WARNING: [Synth 8-6014] Unused sequential element c2_out_reg was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:233]
-WARNING: [Synth 8-6014] Unused sequential element c1_out_reg was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:239]
-WARNING: [Synth 8-3936] Found unconnected internal register 'a4_out_reg' and it is trimmed from '8' to '4' bits. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:209]
-WARNING: [Synth 8-3936] Found unconnected internal register 'a3_out_reg' and it is trimmed from '8' to '4' bits. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:205]
-WARNING: [Synth 8-3936] Found unconnected internal register 'a2_out_reg' and it is trimmed from '8' to '4' bits. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:200]
-WARNING: [Synth 8-3936] Found unconnected internal register 'a1_out_reg' and it is trimmed from '8' to '4' bits. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:194]
-WARNING: [Synth 8-3848] Net sortie in module/entity chemin_donnees does not have driver. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:38]
-WARNING: [Synth 8-3848] Net ALU_A in module/entity chemin_donnees does not have driver. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:83]
-WARNING: [Synth 8-3848] Net ALU_B in module/entity chemin_donnees does not have driver. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:84]
-WARNING: [Synth 8-3848] Net ALU_Ctrl in module/entity chemin_donnees does not have driver. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:85]
+WARNING: [Synth 8-3936] Found unconnected internal register 'a4_out_reg' and it is trimmed from '8' to '4' bits. [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:232]
 INFO: [Synth 8-256] done synthesizing module 'chemin_donnees' (5#1) [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:41]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[7]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[6]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[5]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[4]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[3]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[2]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[1]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[0]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1311.902 ; gain = 140.434 ; free physical = 112625 ; free virtual = 139042
+Finished Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1313.891 ; gain = 142.324 ; free physical = 57373 ; free virtual = 69678
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1311.902 ; gain = 140.434 ; free physical = 112627 ; free virtual = 139044
+Finished Constraint Validation : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1313.891 ; gain = 142.324 ; free physical = 57373 ; free virtual = 69679
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -62,7 +45,7 @@ Start Loading Part and Timing Information
 Loading part: xc7a35tcpg236-1
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1319.906 ; gain = 148.438 ; free physical = 112626 ; free virtual = 139043
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1321.895 ; gain = 150.328 ; free physical = 57373 ; free virtual = 69679
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "registers_reg[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "registers_reg[1]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -181,8 +164,9 @@ INFO: [Synth 8-5546] ROM "memoire_donnees_reg[97]" won't be mapped to RAM becaus
 INFO: [Synth 8-5546] ROM "memoire_donnees_reg[98]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "memoire_donnees_reg[99]" won't be mapped to RAM because it is too sparse
 INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-327] inferring latch for variable 'ALU_Ctrl_reg' [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:158]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1335.922 ; gain = 164.453 ; free physical = 112574 ; free virtual = 138994
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1337.910 ; gain = 166.344 ; free physical = 57317 ; free virtual = 69639
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -201,13 +185,14 @@ Detailed RTL Component Info :
 	   2 Input      8 Bit       Adders := 1     
 +---Registers : 
 	               32 Bit    Registers := 1     
-	                8 Bit    Registers := 282   
-	                4 Bit    Registers := 4     
+	                8 Bit    Registers := 286   
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
 +---Muxes : 
 	 257 Input     32 Bit        Muxes := 1     
 	   4 Input     16 Bit        Muxes := 1     
 	   2 Input     16 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 6     
 	   2 Input      1 Bit        Muxes := 272   
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -221,8 +206,11 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input      8 Bit       Adders := 1     
 +---Registers : 
-	                8 Bit    Registers := 9     
-	                4 Bit    Registers := 4     
+	                8 Bit    Registers := 14    
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 4     
 Module ALU 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -241,7 +229,7 @@ Detailed RTL Component Info :
 Module mem_donnees 
 Detailed RTL Component Info : 
 +---Registers : 
-	                8 Bit    Registers := 257   
+	                8 Bit    Registers := 256   
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 256   
 Module mem_instructions 
@@ -267,34 +255,99 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[0] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[1] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[2] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[3] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[4] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[5] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[6] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[7] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[8] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[9] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[10] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[11] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[12] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[13] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[14] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element my_banc_registres/registers_reg[15] was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/banc_registres.vhd:60]
-WARNING: [Synth 8-6014] Unused sequential element b1_out_reg was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:195]
-WARNING: [Synth 8-6014] Unused sequential element b2_out_reg was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:201]
-WARNING: [Synth 8-6014] Unused sequential element b3_out_reg was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:206]
-WARNING: [Synth 8-6014] Unused sequential element b4_out_reg was removed.  [/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.srcs/sources_1/new/chemin_donnees.vhd:211]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[7]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[6]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[5]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[4]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[3]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[2]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[1]
-WARNING: [Synth 8-3331] design chemin_donnees has unconnected port sortie[0]
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[9] )
+INFO: [Synth 8-3886] merging instance 'my_mem_instructions/sortie_reg[11]' (FD) to 'my_mem_instructions/sortie_reg[16]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[30] )
+INFO: [Synth 8-3886] merging instance 'my_mem_instructions/sortie_reg[25]' (FD) to 'my_mem_instructions/sortie_reg[26]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[27] )
+INFO: [Synth 8-3886] merging instance 'my_mem_instructions/sortie_reg[24]' (FD) to 'my_mem_instructions/sortie_reg[0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[23] )
+INFO: [Synth 8-3886] merging instance 'my_mem_instructions/sortie_reg[0]' (FD) to 'my_mem_instructions/sortie_reg[17]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_mem_instructions/sortie_reg[21] )
+INFO: [Synth 8-3886] merging instance 'num_nop_reg[0]' (FDRE) to 'num_nop_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\num_nop_reg[1] )
+INFO: [Synth 8-3886] merging instance 'b1_out_reg[3]' (FD) to 'a1_out_reg[0]'
+INFO: [Synth 8-3886] merging instance 'op1_out_reg[1]' (FD) to 'op1_out_reg[2]'
+INFO: [Synth 8-3886] merging instance 'op1_out_reg[0]' (FD) to 'c1_out_reg[0]'
+INFO: [Synth 8-3886] merging instance 'c1_out_reg[0]' (FD) to 'a1_out_reg[1]'
+INFO: [Synth 8-3886] merging instance 'a2_out_reg[1]' (FDR) to 'op2_out_reg[0]'
+INFO: [Synth 8-3886] merging instance 'op2_out_reg[2]' (FDR) to 'op2_out_reg[1]'
+INFO: [Synth 8-3886] merging instance 'a3_out_reg[1]' (FD) to 'op3_out_reg[0]'
+INFO: [Synth 8-3886] merging instance 'op3_out_reg[1]' (FD) to 'op3_out_reg[2]'
+INFO: [Synth 8-3886] merging instance 'a4_out_reg[1]' (FD) to 'op4_out_reg[0]'
+INFO: [Synth 8-3886] merging instance 'op4_out_reg[2]' (FD) to 'op4_out_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\b1_out_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\b1_out_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\b1_out_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\b1_out_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\b1_out_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\b1_out_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\op1_out_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\op1_out_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\op1_out_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\op1_out_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\op1_out_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\c1_out_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\a1_out_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\c1_out_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\a1_out_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\c1_out_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\c1_out_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\a1_out_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\c1_out_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\a1_out_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\c1_out_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\a1_out_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\c1_out_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\a1_out_reg[5] )
+INFO: [Synth 8-3886] merging instance 'a2_out_reg[2]' (FDR) to 'a2_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'a2_out_reg[3]' (FDR) to 'a2_out_reg[4]'
+INFO: [Synth 8-3886] merging instance 'a2_out_reg[4]' (FDR) to 'a2_out_reg[5]'
+INFO: [Synth 8-3886] merging instance 'a2_out_reg[5]' (FDR) to 'a2_out_reg[6]'
+INFO: [Synth 8-3886] merging instance 'a2_out_reg[6]' (FDR) to 'a2_out_reg[7]'
+INFO: [Synth 8-3886] merging instance 'a2_out_reg[7]' (FDR) to 'op2_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'ALU_Ctrl_reg[1]' (LD) to 'ALU_Ctrl_reg[2]'
+INFO: [Synth 8-3886] merging instance 'op2_out_reg[6]' (FDR) to 'op2_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'op2_out_reg[5]' (FDR) to 'op2_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'op2_out_reg[4]' (FDR) to 'op2_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'op2_out_reg[3]' (FDR) to 'op2_out_reg[7]'
+INFO: [Synth 8-3886] merging instance 'a3_out_reg[2]' (FD) to 'op3_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'a3_out_reg[3]' (FD) to 'op3_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'a3_out_reg[4]' (FD) to 'op3_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'a3_out_reg[5]' (FD) to 'op3_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'a3_out_reg[6]' (FD) to 'op3_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'a3_out_reg[7]' (FD) to 'op3_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'op3_out_reg[7]' (FD) to 'op3_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'op3_out_reg[6]' (FD) to 'op3_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'op3_out_reg[4]' (FD) to 'op3_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'op3_out_reg[5]' (FD) to 'op3_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'a4_out_reg[3]' (FD) to 'op4_out_reg[5]'
+INFO: [Synth 8-3886] merging instance 'a4_out_reg[2]' (FD) to 'op4_out_reg[5]'
+INFO: [Synth 8-3886] merging instance 'op4_out_reg[6]' (FD) to 'op4_out_reg[5]'
+INFO: [Synth 8-3886] merging instance 'op4_out_reg[4]' (FD) to 'op4_out_reg[5]'
+INFO: [Synth 8-3886] merging instance 'op4_out_reg[3]' (FD) to 'op4_out_reg[5]'
+INFO: [Synth 8-3886] merging instance 'op4_out_reg[5]' (FD) to 'op4_out_reg[7]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\op3_out_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\op4_out_reg[7] )
 WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[0][7]) is unused and will be removed from module chemin_donnees.
 WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[0][6]) is unused and will be removed from module chemin_donnees.
 WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[0][5]) is unused and will be removed from module chemin_donnees.
@@ -397,7 +450,7 @@ WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[1
 WARNING: [Synth 8-3332] Sequential element (my_mem_donnees/memoire_donnees_reg[12][4]) is unused and will be removed from module chemin_donnees.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:31 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112448 ; free virtual = 138885
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:20 . Memory (MB): peak = 1446.035 ; gain = 274.469 ; free physical = 57184 ; free virtual = 69515
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -410,7 +463,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:31 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112448 ; free virtual = 138885
+Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:20 . Memory (MB): peak = 1446.035 ; gain = 274.469 ; free physical = 57184 ; free virtual = 69515
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -422,7 +475,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:31 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112448 ; free virtual = 138885
+Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:20 . Memory (MB): peak = 1454.043 ; gain = 282.477 ; free physical = 57184 ; free virtual = 69515
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -446,7 +499,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
+Finished IO Insertion : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1454.043 ; gain = 282.477 ; free physical = 57184 ; free virtual = 69515
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -459,7 +512,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1454.043 ; gain = 282.477 ; free physical = 57184 ; free virtual = 69515
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -471,25 +524,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1454.043 ; gain = 282.477 ; free physical = 57184 ; free virtual = 69515
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1454.043 ; gain = 282.477 ; free physical = 57184 ; free virtual = 69515
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1454.043 ; gain = 282.477 ; free physical = 57184 ; free virtual = 69515
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1454.043 ; gain = 282.477 ; free physical = 57184 ; free virtual = 69515
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -502,36 +555,53 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+------+------+
-|      |Cell  |Count |
-+------+------+------+
-|1     |OBUFT |     8|
-+------+------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     2|
+|3     |LUT1   |     2|
+|4     |LUT2   |    15|
+|5     |LUT3   |    12|
+|6     |LUT4   |     8|
+|7     |LUT5   |     9|
+|8     |LUT6   |    17|
+|9     |FDRE   |    73|
+|10    |LD     |     2|
+|11    |IBUF   |     2|
+|12    |OBUF   |     8|
++------+-------+------+
 
 Report Instance Areas: 
-+------+---------+-------+------+
-|      |Instance |Module |Cells |
-+------+---------+-------+------+
-|1     |top      |       |     8|
-+------+---------+-------+------+
++------+----------------------+-----------------+------+
+|      |Instance              |Module           |Cells |
++------+----------------------+-----------------+------+
+|1     |top                   |                 |   151|
+|2     |  my_alu              |ALU              |    18|
+|3     |  my_banc_registres   |banc_registres   |    35|
+|4     |  my_mem_instructions |mem_instructions |     9|
++------+----------------------+-----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1454.043 ; gain = 282.477 ; free physical = 57184 ; free virtual = 69515
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 2182 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.008 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
-Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1424.016 ; gain = 252.539 ; free physical = 112457 ; free virtual = 138895
+Synthesis finished with 0 errors, 0 critical warnings and 2214 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1454.043 ; gain = 282.477 ; free physical = 57192 ; free virtual = 69523
+Synthesis Optimization Complete : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1454.051 ; gain = 282.477 ; free physical = 57199 ; free virtual = 69530
 INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 2 instances were transformed.
+  LD => LDCE: 2 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-139 Infos, 146 Warnings, 0 Critical Warnings and 0 Errors encountered.
+234 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:34 . Memory (MB): peak = 1503.031 ; gain = 343.207 ; free physical = 112422 ; free virtual = 138874
+synth_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:22 . Memory (MB): peak = 1569.070 ; gain = 409.258 ; free physical = 57148 ; free virtual = 69494
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint '/home/cdespaux/Bureau/ProjetSysInfo/Projet/Microprocesseur/Microprocesseur.runs/synth_1/chemin_donnees.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file chemin_donnees_utilization_synth.rpt -pb chemin_donnees_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.15 . Memory (MB): peak = 1527.043 ; gain = 0.000 ; free physical = 112423 ; free virtual = 138876
-INFO: [Common 17-206] Exiting Vivado at Sun May 28 11:51:04 2023...
+report_utilization: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.13 . Memory (MB): peak = 1593.082 ; gain = 0.000 ; free physical = 57148 ; free virtual = 69494
+INFO: [Common 17-206] Exiting Vivado at Tue May 30 15:56:52 2023...

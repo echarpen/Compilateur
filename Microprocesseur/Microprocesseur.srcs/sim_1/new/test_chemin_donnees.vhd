@@ -44,7 +44,7 @@ Port ( CLK_cd : in STD_LOGIC;
 end component ;
 
 signal CLK_test : STD_LOGIC := '0' ; 
-signal RST_test : STD_LOGIC := '0' ; 
+signal RST_test : STD_LOGIC := '1' ; 
 signal sortie_test : STD_LOGIC_VECTOR (7 downto 0);
 
 constant CLK_period : time := 10 ns;
@@ -63,8 +63,6 @@ begin
     CLK_test <= not(CLK_test);
     wait for CLK_period/2; 
 end process;
-
--- Stimulus process 
 
 
 
