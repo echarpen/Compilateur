@@ -1,0 +1,12 @@
+int f() {
+    int a = 22;
+    int b = 44;
+
+    while(a<30){
+
+        while (b>33){
+            a = a+ 7;
+            b = b + 8;
+        }
+    }
+}

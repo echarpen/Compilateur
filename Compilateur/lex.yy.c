@@ -1024,38 +1024,38 @@ YY_RULE_SETUP
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 62 "lex.l"
+#line 64 "lex.l"
 {}
 	YY_BREAK
 case 39:
 /* rule 39 can match eol */
 YY_RULE_SETUP
-#line 63 "lex.l"
+#line 65 "lex.l"
 {}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 65 "lex.l"
+#line 67 "lex.l"
 {strcpy(yylval.str , yytext); return tID;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 66 "lex.l"
+#line 68 "lex.l"
 {yylval.nb = (int) strtold(yytext, NULL); return tNB;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 67 "lex.l"
+#line 69 "lex.l"
 {return tNB;}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 69 "lex.l"
+#line 71 "lex.l"
 {return tERROR;} 
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 71 "lex.l"
+#line 73 "lex.l"
 ECHO;
 	YY_BREAK
 #line 1062 "lex.yy.c"
@@ -2027,7 +2027,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 71 "lex.l"
+#line 73 "lex.l"
 
 
 /*int main(int argc, char *argv[])

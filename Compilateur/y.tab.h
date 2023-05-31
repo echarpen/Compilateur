@@ -127,7 +127,7 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 15 "parser.y"
+#line 17 "parser.y"
  int nb ; char str[16];
 
 #line 134 "y.tab.h"
@@ -143,10 +143,10 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 /* "%code provides" blocks.  */
-#line 10 "parser.y"
+#line 11 "parser.y"
 
     int yylex(void);
-    void yyerror(const char*);
+      void yyerror(const char*);
 
 #line 152 "y.tab.h"
 

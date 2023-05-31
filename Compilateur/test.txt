@@ -63,3 +63,16 @@ int f() {
   a = 0;
   }
 }
+
+
+
+
+
+
+            if (symb_in_ts($1)){
+                fprintf(stderr,"Erreur \n");
+                return 1;
+            } else {add_symb_var_ts($1,0,INT);print_TS_cst();}
+
+
+            	./test < un_test.txt
