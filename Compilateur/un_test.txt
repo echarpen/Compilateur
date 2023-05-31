@@ -1,10 +1,11 @@
 int f() {
     int a = 22;
     int b = 44;
+    int c = a + 55;
 
     while(a<30){
 
-        while (b>33){
+        if (b>33){
             a = a+ 7;
             b = b + 8;
         }

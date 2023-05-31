@@ -313,8 +313,6 @@ begin
 end process;
 
 sortie <= b4_out;
---sortie2 <= QA ? pour la synthese 
--- suivre le guide vivado ! a la clock
 
 end Behavioral;
 

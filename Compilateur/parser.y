@@ -171,7 +171,7 @@ Arith_Expr : Factor {
                 //rmv_symb_tmp_ts(1);
                 print_tab_asm();}
             
-           //mettre actions simples, printf pour verifier que grammaire est bonne, printf ensuite transforme en fprintf des instructions en asm, il nous faut recuper l @ dans la ts
+           
 
 Factor : Term { $$ = $1; }
        | Factor tMUL Term {
@@ -207,8 +207,7 @@ Condition : tID {$$=get_addr_var_ts($1);}
              rmv_symb_tmp_ts(1);
             add_symb_tmp_ts();  
                 add_arithm(AND);
-                print_tab_asm();
-                //add_symb_tmp_ts();  
+                print_tab_asm(); 
                  $$ = get_last_tmp_addr();
             
           }
@@ -240,7 +239,6 @@ Bool_Expr : tTRUE {$$=1;}
                 add_arithm(SUP);
                 $$ = get_last_tmp_addr();
                 print_tab_asm();
-                //add_symb_tmp_ts();  
           }
           | Arith_Expr tGE Arith_Expr
           | Arith_Expr tLE Arith_Expr
@@ -252,7 +250,7 @@ Bool_Expr : tTRUE {$$=1;}
                 add_arithm(EQU);
                 $$ = get_last_tmp_addr();
                 print_tab_asm();
-                //add_symb_tmp_ts();  
+                
           }; 
 
 

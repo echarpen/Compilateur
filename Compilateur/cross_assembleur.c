@@ -1,5 +1,10 @@
 #include "cross_assembleur.h"
 
+
+///////////////////// Ce cross assembleur est une tentative de code mais n'est pas du tout fini   //////////////////////////////////
+
+
+
 void cross_asm_table(FILE* input) {
 
     FILE* asm_file = fopn(input, "w+");

@@ -1,6 +1,6 @@
 GRM=parser.y
 LEX=lex.l
-BIN=test
+BIN=compilateur
 
 CC=gcc
 CFLAGS=-Wall -g
@@ -9,7 +9,7 @@ OBJ=y.tab.o lex.yy.o ts.o asm_instruction.o
 
 
 all: $(BIN)
-	./test < un_test.txt
+	./compilateur < un_test.txt
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
